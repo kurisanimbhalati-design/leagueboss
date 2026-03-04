@@ -1,0 +1,2011 @@
+{
+  "streams": [
+    {
+      "id": "s0_stream_a1",
+      "name": "Stream A1",
+      "teams": [
+        "Lesetja Academy",
+        "Machaba XI",
+        "Mankwatla",
+        "Avon PSG",
+        "Bestmen United",
+        "Graceland",
+        "Ditatsu H Brothers",
+        "Mazau"
+      ]
+    },
+    {
+      "id": "s1_stream_a2",
+      "name": "Stream A2",
+      "teams": [
+        "Mabetha Brazil",
+        "Joe Academy",
+        "Big Five",
+        "Mighty Killers",
+        "Makgato Celtic"
+      ]
+    },
+    {
+      "id": "s2_stream_b",
+      "name": "Stream B",
+      "teams": [
+        "Letjeka",
+        "Maswaiswai",
+        "Dandol Academy",
+        "Seomong Jumbers",
+        "Mapalies Academy",
+        "Mashaha S Complex",
+        "Bachoroma",
+        "Korea",
+        "Oscar All Stars"
+      ]
+    },
+    {
+      "id": "s3_stream_c1",
+      "name": "Stream C1",
+      "teams": [
+        "Mentz United",
+        "Polokwane United",
+        "Most Wanted",
+        "Moria Sweepers",
+        "Luka United",
+        "Dikolobe United",
+        "CNJ United",
+        "Barcelona Sports Academy",
+        "Cheetahs",
+        "University of Limpopo",
+        "Mapesa",
+        "Segopje Movers"
+      ]
+    },
+    {
+      "id": "s4_stream_c2",
+      "name": "Stream C2",
+      "teams": [
+        "Mabiloane Tunisia",
+        "Peace United",
+        "Mailakgomo",
+        "Mararas",
+        "Seshego City Warriors",
+        "FC Inter",
+        "Excellence Academy",
+        "Thogoaneng United",
+        "Star Sign",
+        "Cairo",
+        "LSSE",
+        "Pragmic"
+      ]
+    },
+    {
+      "id": "s5_stream_d1",
+      "name": "Stream D1",
+      "teams": [
+        "D-Mexico",
+        "Mphahlele Shamrocks",
+        "Maeba Chiefs",
+        "Mazwi Arsenal",
+        "Dinho",
+        "Ocean Swallows",
+        "Diphuti Tsa Boroka",
+        "Milano",
+        "Cape Ramplers",
+        "Phinnet City"
+      ]
+    },
+    {
+      "id": "s6_stream_d2",
+      "name": "Stream D2",
+      "teams": [
+        "Mandebele Happy Fighters",
+        "ZB Black Pirates",
+        "Lethamaga",
+        "Dikgabo Big Five",
+        "Mapatjakeng Liverpool",
+        "Mawaneng Home Stars",
+        "Mandebele Happy Boys",
+        "ZB United"
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "e98572b3",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-10",
+      "home": "Lesetja Academy",
+      "away": "Machaba XI",
+      "gh": 2,
+      "ga": 4
+    },
+    {
+      "id": "51f554e3",
+      "streamId": "s1_stream_a2",
+      "date": "2026-01-10",
+      "home": "Mabetha Brazil",
+      "away": "Joe Academy",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "b3ac88ac",
+      "streamId": "s2_stream_b",
+      "date": "2026-01-10",
+      "home": "Letjeka",
+      "away": "Maswaiswai",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "691102da",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-10",
+      "home": "Mentz United",
+      "away": "Polokwane United",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "85b18de5",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-10",
+      "home": "Mabiloane Tunisia",
+      "away": "Peace United",
+      "gh": 4,
+      "ga": 0
+    },
+    {
+      "id": "d70e3e47",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-10",
+      "home": "D-Mexico",
+      "away": "Mphahlele Shamrocks",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "872fe091",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-10",
+      "home": "Mandebele Happy Fighters",
+      "away": "ZB Black Pirates",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "68693131",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-10",
+      "home": "Mankwatla",
+      "away": "Avon PSG",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "b38ce2f8",
+      "streamId": "s1_stream_a2",
+      "date": "2026-01-10",
+      "home": "Big Five",
+      "away": "Mighty Killers",
+      "gh": 5,
+      "ga": 4
+    },
+    {
+      "id": "18ef15ef",
+      "streamId": "s2_stream_b",
+      "date": "2026-01-10",
+      "home": "Dandol Academy",
+      "away": "Seomong Jumbers",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "8ddd7abe",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-10",
+      "home": "Most Wanted",
+      "away": "Moria Sweepers",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "5b79b255",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-10",
+      "home": "Mailakgomo",
+      "away": "Mararas",
+      "gh": 3,
+      "ga": 2
+    },
+    {
+      "id": "17ffcff6",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-10",
+      "home": "Maeba Chiefs",
+      "away": "Mazwi Arsenal",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "2a4cc17a",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-10",
+      "home": "Lethamaga",
+      "away": "Dikgabo Big Five",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "b3b262de",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-10",
+      "home": "Bestmen United",
+      "away": "Graceland",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "6b0a9aa8",
+      "streamId": "s2_stream_b",
+      "date": "2026-01-10",
+      "home": "Mapalies Academy",
+      "away": "Mashaha S Complex",
+      "gh": 4,
+      "ga": 0
+    },
+    {
+      "id": "0020064c",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-10",
+      "home": "Luka United",
+      "away": "Dikolobe United",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "669272be",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-10",
+      "home": "Seshego City Warriors",
+      "away": "FC Inter",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "28de5b10",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-10",
+      "home": "Dinho",
+      "away": "Ocean Swallows",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "802131e0",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-10",
+      "home": "Mapatjakeng Liverpool",
+      "away": "Mawaneng Home Stars",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "8ee67f2a",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-10",
+      "home": "Ditatsu H Brothers",
+      "away": "Mazau",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "c96b0ffe",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-10",
+      "home": "CNJ United",
+      "away": "Barcelona Sports Academy",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "99d94abc",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-10",
+      "home": "Excellence Academy",
+      "away": "Thogoaneng United",
+      "gh": 0,
+      "ga": 3
+    },
+    {
+      "id": "fa8b966a",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-10",
+      "home": "Diphuti Tsa Boroka",
+      "away": "Milano",
+      "gh": 4,
+      "ga": 0
+    },
+    {
+      "id": "f454152e",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-10",
+      "home": "Mandebele Happy Boys",
+      "away": "ZB United",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "c904bae8",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-10",
+      "home": "Cheetahs",
+      "away": "University of Limpopo",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "02f031e8",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-10",
+      "home": "Star Sign",
+      "away": "Cairo",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "f255471d",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-10",
+      "home": "Mapesa",
+      "away": "Segopje Movers",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "886feb34",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-10",
+      "home": "LSSE",
+      "away": "Pragmic",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "4a0bf385",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-17",
+      "home": "Graceland",
+      "away": "Lesetja Academy",
+      "gh": 6,
+      "ga": 2
+    },
+    {
+      "id": "d2205797",
+      "streamId": "s2_stream_b",
+      "date": "2026-01-17",
+      "home": "Seomong Jumbers",
+      "away": "Bachoroma",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "16d7cffc",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-17",
+      "home": "Moria Sweepers",
+      "away": "Mapesa",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "fa717285",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-17",
+      "home": "Seshego City Warriors",
+      "away": "Star Sign",
+      "gh": 0,
+      "ga": 5
+    },
+    {
+      "id": "d92c9ea3",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-17",
+      "home": "Ocean Swallows",
+      "away": "Cape Ramplers",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "ee7f05be",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-17",
+      "home": "Mawaneng Home Stars",
+      "away": "Mandebele Happy Boys",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "a582d377",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-17",
+      "home": "Mankwatla",
+      "away": "Ditatsu H Brothers",
+      "gh": 5,
+      "ga": 2
+    },
+    {
+      "id": "c30aa2d7",
+      "streamId": "s2_stream_b",
+      "date": "2026-01-17",
+      "home": "Maswaiswai",
+      "away": "Dandol Academy",
+      "gh": 2,
+      "ga": 3
+    },
+    {
+      "id": "46236655",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-17",
+      "home": "Dikolobe United",
+      "away": "University of Limpopo",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "24090136",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-17",
+      "home": "Mararas",
+      "away": "LSSE",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "3b1d1c18",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-17",
+      "home": "Milano",
+      "away": "Dinho",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "7594af44",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-17",
+      "home": "ZB Black Pirates",
+      "away": "Dikgabo Big Five",
+      "gh": 2,
+      "ga": 3
+    },
+    {
+      "id": "dc721227",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-17",
+      "home": "Machaba XI",
+      "away": "Avon PSG",
+      "gh": 2,
+      "ga": 3
+    },
+    {
+      "id": "7c20e6fa",
+      "streamId": "s2_stream_b",
+      "date": "2026-01-17",
+      "home": "Mashaha S Complex",
+      "away": "Korea",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "ce2ab342",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-17",
+      "home": "Polokwane United",
+      "away": "Luka United",
+      "gh": 5,
+      "ga": 0
+    },
+    {
+      "id": "78d8c787",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-17",
+      "home": "Mailakgomo",
+      "away": "Mabiloane Tunisia",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "735f982b",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-17",
+      "home": "Mazwi Arsenal",
+      "away": "D-Mexico",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "da8b9a10",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-17",
+      "home": "Mapatjakeng Liverpool",
+      "away": "Mandebele Happy Fighters",
+      "gh": 3,
+      "ga": 1
+    },
+    {
+      "id": "4372f0f2",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-17",
+      "home": "Mazau",
+      "away": "Bestmen United",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "79341835",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-17",
+      "home": "Most Wanted",
+      "away": "Mentz United",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "83fa82ec",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-17",
+      "home": "Thogoaneng United",
+      "away": "Cairo",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "1f409f72",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-17",
+      "home": "Maeba Chiefs",
+      "away": "Diphuti Tsa Boroka",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "db615e72",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-17",
+      "home": "ZB United",
+      "away": "Lethamaga",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "48141eb6",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-17",
+      "home": "Barcelona Sports Academy",
+      "away": "Cheetahs",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "eed1d3b2",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-17",
+      "home": "Peace United",
+      "away": "FC Inter",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "48b227ab",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-17",
+      "home": "Mphahlele Shamrocks",
+      "away": "Phinnet City",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "7390c9d8",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-17",
+      "home": "Segopje Movers",
+      "away": "CNJ United",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "82624cd4",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-24",
+      "home": "Bestmen United",
+      "away": "Avon PSG",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "f46797ba",
+      "streamId": "s1_stream_a2",
+      "date": "2026-01-24",
+      "home": "Mighty Killers",
+      "away": "Mabetha Brazil",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "d230e470",
+      "streamId": "s2_stream_b",
+      "date": "2026-01-24",
+      "home": "Maswaiswai",
+      "away": "Bachoroma",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "32f23c88",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-24",
+      "home": "University of Limpopo",
+      "away": "Polokwane United",
+      "gh": 3,
+      "ga": 1
+    },
+    {
+      "id": "190fd9d1",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-24",
+      "home": "Star Sign",
+      "away": "Peace United",
+      "gh": 4,
+      "ga": 1
+    },
+    {
+      "id": "8c69a0df",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-24",
+      "home": "Cape Ramplers",
+      "away": "Mphahlele Shamrocks",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "e54e0902",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-24",
+      "home": "Dikgabo Big Five",
+      "away": "Mapatjakeng Liverpool",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "a3823aaa",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-24",
+      "home": "Graceland",
+      "away": "Mazau",
+      "gh": 5,
+      "ga": 1
+    },
+    {
+      "id": "a82a3505",
+      "streamId": "s1_stream_a2",
+      "date": "2026-01-24",
+      "home": "Makgato Celtic",
+      "away": "Big Five",
+      "gh": 3,
+      "ga": 1
+    },
+    {
+      "id": "9d546668",
+      "streamId": "s2_stream_b",
+      "date": "2026-01-24",
+      "home": "Mashaha S Complex",
+      "away": "Oscar All Stars",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "9ec86ce4",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-24",
+      "home": "Cheetahs",
+      "away": "Dikolobe United",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "98e37e8f",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-24",
+      "home": "Cairo",
+      "away": "Seshego City Warriors",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "c234a626",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-24",
+      "home": "Phinnet City",
+      "away": "Mazwi Arsenal",
+      "gh": 3,
+      "ga": 2
+    },
+    {
+      "id": "3419bbbf",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-24",
+      "home": "Mandebele Happy Boys",
+      "away": "Mandebele Happy Fighters",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "c43f95eb",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-24",
+      "home": "Lesetja Academy",
+      "away": "Ditatsu H Brothers",
+      "gh": 2,
+      "ga": 5
+    },
+    {
+      "id": "ea053f70",
+      "streamId": "s2_stream_b",
+      "date": "2026-01-24",
+      "home": "Mapalies Academy",
+      "away": "Seomong Jumbers",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "43d0a5d4",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-24",
+      "home": "CNJ United",
+      "away": "Moria Sweepers",
+      "gh": 2,
+      "ga": 3
+    },
+    {
+      "id": "816a6f3f",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-24",
+      "home": "Excellence Academy",
+      "away": "Mararas",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "98dcec4b",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-24",
+      "home": "Ocean Swallows",
+      "away": "Milano",
+      "gh": 4,
+      "ga": 3
+    },
+    {
+      "id": "fea955d8",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-24",
+      "home": "Lethamaga",
+      "away": "ZB Black Pirates",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "40d30f9c",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-24",
+      "home": "Machaba XI",
+      "away": "Mankwatla",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "9903a504",
+      "streamId": "s2_stream_b",
+      "date": "2026-01-24",
+      "home": "Korea",
+      "away": "Dandol Academy",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "fadac9bc",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-24",
+      "home": "Luka United",
+      "away": "Most Wanted",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "dba30dee",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-24",
+      "home": "LSSE",
+      "away": "Mabiloane Tunisia",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "384b8259",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-24",
+      "home": "D-Mexico",
+      "away": "Diphuti Tsa Boroka",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "81aa6fbe",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-24",
+      "home": "Barcelona Sports Academy",
+      "away": "Segopje Movers",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "8b717a8d",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-24",
+      "home": "FC Inter",
+      "away": "Mailakgomo",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "e776c940",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-24",
+      "home": "Mapesa",
+      "away": "Mentz United",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "c8423587",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-24",
+      "home": "Thogoaneng United",
+      "away": "Pragmic",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "950db1d6",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-31",
+      "home": "Ditatsu H Brothers",
+      "away": "Bestmen United",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "f1cf7aeb",
+      "streamId": "s2_stream_b",
+      "date": "2026-01-31",
+      "home": "Bachoroma",
+      "away": "Oscar All Stars",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "5c216ddf",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-31",
+      "home": "Polokwane United",
+      "away": "Dikolobe United",
+      "gh": 4,
+      "ga": 1
+    },
+    {
+      "id": "40907691",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-31",
+      "home": "Peace United",
+      "away": "Seshego City Warriors",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "e73fb3f9",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-31",
+      "home": "Maeba Chiefs",
+      "away": "Ocean Swallows",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "00ecec92",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-31",
+      "home": "Mawaneng Home Stars",
+      "away": "Lethamaga",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "2e9c20dc",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-31",
+      "home": "Mankwatla",
+      "away": "Lesetja Academy",
+      "gh": 3,
+      "ga": 1
+    },
+    {
+      "id": "8529a707",
+      "streamId": "s2_stream_b",
+      "date": "2026-01-31",
+      "home": "Seomong Jumbers",
+      "away": "Maswaiswai",
+      "gh": 4,
+      "ga": 2
+    },
+    {
+      "id": "db678cd1",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-31",
+      "home": "Most Wanted",
+      "away": "University of Limpopo",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "5b012ccf",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-31",
+      "home": "Pragmic",
+      "away": "Cairo",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "d77cbf0c",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-31",
+      "home": "Milano",
+      "away": "Cape Ramplers",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "b14e8e37",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-31",
+      "home": "Mandebele Happy Boys",
+      "away": "Dikgabo Big Five",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "34c07b9b",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-31",
+      "home": "Avon PSG",
+      "away": "Graceland",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "38e5fd2f",
+      "streamId": "s2_stream_b",
+      "date": "2026-01-31",
+      "home": "Dandol Academy",
+      "away": "Mapalies Academy",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "7eee19a4",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-31",
+      "home": "Moria Sweepers",
+      "away": "Barcelona Sports Academy",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "55c52899",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-31",
+      "home": "Mailakgomo",
+      "away": "Star Sign",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "6ad8da6d",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-31",
+      "home": "Diphuti Tsa Boroka",
+      "away": "Phinnet City",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "beca3b44",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-31",
+      "home": "Mandebele Happy Fighters",
+      "away": "ZB United",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "f8bea4c4",
+      "streamId": "s0_stream_a1",
+      "date": "2026-01-31",
+      "home": "Machaba XI",
+      "away": "Mazau",
+      "gh": 4,
+      "ga": 2
+    },
+    {
+      "id": "b3652c4d",
+      "streamId": "s2_stream_b",
+      "date": "2026-01-31",
+      "home": "Korea",
+      "away": "Letjeka",
+      "gh": 3,
+      "ga": 2
+    },
+    {
+      "id": "b5a44a50",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-31",
+      "home": "Mapesa",
+      "away": "Luka United",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "969385e7",
+      "streamId": "s4_stream_c2",
+      "date": "2026-01-31",
+      "home": "Mararas",
+      "away": "Thogoaneng United",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "39d8fd25",
+      "streamId": "s5_stream_d1",
+      "date": "2026-01-31",
+      "home": "D-Mexico",
+      "away": "Dinho",
+      "gh": 3,
+      "ga": 2
+    },
+    {
+      "id": "17b5e707",
+      "streamId": "s6_stream_d2",
+      "date": "2026-01-31",
+      "home": "Mapatjakeng Liverpool",
+      "away": "ZB Black Pirates",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "7e459153",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-31",
+      "home": "Segopje Movers",
+      "away": "Cheetahs",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "922a5a96",
+      "streamId": "s3_stream_c1",
+      "date": "2026-01-31",
+      "home": "Mentz United",
+      "away": "CNJ United",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "ed49147e",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-07",
+      "home": "Lesetja Academy",
+      "away": "Avon PSG",
+      "gh": 0,
+      "ga": 14
+    },
+    {
+      "id": "a372ff05",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-07",
+      "home": "Seomong Jumbers",
+      "away": "Korea",
+      "gh": 4,
+      "ga": 1
+    },
+    {
+      "id": "0eec8736",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-07",
+      "home": "Cheetahs",
+      "away": "Polokwane United",
+      "gh": 3,
+      "ga": 1
+    },
+    {
+      "id": "92a24a31",
+      "streamId": "s4_stream_c2",
+      "date": "2026-02-07",
+      "home": "Cairo",
+      "away": "Peace United",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "1e36b47d",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-07",
+      "home": "Cape Ramplers",
+      "away": "Mazwi Arsenal",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "b21a6952",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-07",
+      "home": "Mawaneng Home Stars",
+      "away": "Mandebele Happy Fighters",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "c2e83842",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-07",
+      "home": "Mazau",
+      "away": "Mankwatla",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "d95050a2",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-07",
+      "home": "Bachoroma",
+      "away": "Mashaha S Complex",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "8a414b83",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-07",
+      "home": "Segopje Movers",
+      "away": "Moria Sweepers",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "02fc655e",
+      "streamId": "s4_stream_c2",
+      "date": "2026-02-07",
+      "home": "Star Sign",
+      "away": "LSSE",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "85b254f6",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-07",
+      "home": "Milano",
+      "away": "Maeba Chiefs",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "e07be14d",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-07",
+      "home": "Lethamaga",
+      "away": "Mapatjakeng Liverpool",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "fc9f54d3",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-07",
+      "home": "Bestmen United",
+      "away": "Machaba XI",
+      "gh": 1,
+      "ga": 4
+    },
+    {
+      "id": "828b5824",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-07",
+      "home": "Maswaiswai",
+      "away": "Mapalies Academy",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "f1b7322f",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-07",
+      "home": "Dikolobe United",
+      "away": "Most Wanted",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "872a0669",
+      "streamId": "s4_stream_c2",
+      "date": "2026-02-07",
+      "home": "Thogoaneng United",
+      "away": "Mabiloane Tunisia",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "0628293b",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-07",
+      "home": "Mphahlele Shamrocks",
+      "away": "Diphuti Tsa Boroka",
+      "gh": 3,
+      "ga": 3
+    },
+    {
+      "id": "b2230791",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-07",
+      "home": "ZB United",
+      "away": "Dikgabo Big Five",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "a3ba772a",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-07",
+      "home": "Graceland",
+      "away": "Ditatsu H Brothers",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "3d6a6fed",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-07",
+      "home": "Oscar All Stars",
+      "away": "Letjeka",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "fd0481bd",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-07",
+      "home": "Barcelona Sports Academy",
+      "away": "Mentz United",
+      "gh": 0,
+      "ga": 3
+    },
+    {
+      "id": "435d26c0",
+      "streamId": "s4_stream_c2",
+      "date": "2026-02-07",
+      "home": "Seshego City Warriors",
+      "away": "Mailakgomo",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "7b95f7e3",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-07",
+      "home": "Ocean Swallows",
+      "away": "D-Mexico",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "3408dac0",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-07",
+      "home": "ZB Black Pirates",
+      "away": "Mandebele Happy Boys",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "e2c87c47",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-07",
+      "home": "University of Limpopo",
+      "away": "Mapesa",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "206bd2b6",
+      "streamId": "s4_stream_c2",
+      "date": "2026-02-07",
+      "home": "Excellence Academy",
+      "away": "FC Inter",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "ccb442fe",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-07",
+      "home": "Phinnet City",
+      "away": "Dinho",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "cb69ff32",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-07",
+      "home": "CNJ United",
+      "away": "Luka United",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "a1ab9dd1",
+      "streamId": "s4_stream_c2",
+      "date": "2026-02-07",
+      "home": "Pragmic",
+      "away": "Mararas",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "176a89fa",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-14",
+      "home": "Ditatsu H Brothers",
+      "away": "Machaba XI",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "00ac6c3f",
+      "streamId": "s1_stream_a2",
+      "date": "2026-02-14",
+      "home": "Joe Academy",
+      "away": "Big Five",
+      "gh": 4,
+      "ga": 2
+    },
+    {
+      "id": "c62a103f",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-14",
+      "home": "Mapalies Academy",
+      "away": "Bachoroma",
+      "gh": 4,
+      "ga": 0
+    },
+    {
+      "id": "6b9737e0",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-14",
+      "home": "Moria Sweepers",
+      "away": "Mentz United",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "dd505493",
+      "streamId": "s4_stream_c2",
+      "date": "2026-02-14",
+      "home": "Peace United",
+      "away": "LSSE",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "01f48603",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-14",
+      "home": "Maeba Chiefs",
+      "away": "Cape Ramplers",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "ef8f632b",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-14",
+      "home": "Mandebele Happy Fighters",
+      "away": "Lethamaga",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "0b29e632",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-14",
+      "home": "Lesetja Academy",
+      "away": "Bestmen United",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "5b7bf91a",
+      "streamId": "s1_stream_a2",
+      "date": "2026-02-14",
+      "home": "Mighty Killers",
+      "away": "Makgato Celtic",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "f93f3fa2",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-14",
+      "home": "Letjeka",
+      "away": "Mashaha S Complex",
+      "gh": 3,
+      "ga": 3
+    },
+    {
+      "id": "94876d13",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-14",
+      "home": "Mapesa",
+      "away": "Polokwane United",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "831f5529",
+      "streamId": "s4_stream_c2",
+      "date": "2026-02-14",
+      "home": "Mararas",
+      "away": "Mabiloane Tunisia",
+      "gh": 3,
+      "ga": 1
+    },
+    {
+      "id": "f6426c6e",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-14",
+      "home": "Diphuti Tsa Boroka",
+      "away": "Mazwi Arsenal",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "9d5d9541",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-14",
+      "home": "ZB United",
+      "away": "ZB Black Pirates",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "4e56b009",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-14",
+      "home": "Avon PSG",
+      "away": "Mazau",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "fb41ad20",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-14",
+      "home": "Korea",
+      "away": "Maswaiswai",
+      "gh": 3,
+      "ga": 1
+    },
+    {
+      "id": "2a854bf8",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-14",
+      "home": "Barcelona Sports Academy",
+      "away": "University of Limpopo",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "4e4f37fe",
+      "streamId": "s4_stream_c2",
+      "date": "2026-02-14",
+      "home": "Cairo",
+      "away": "Mailakgomo",
+      "gh": 4,
+      "ga": 1
+    },
+    {
+      "id": "e21fcd09",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-14",
+      "home": "D-Mexico",
+      "away": "Milano",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "21fcc7f9",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-14",
+      "home": "Mandebele Happy Boys",
+      "away": "Mapatjakeng Liverpool",
+      "gh": 5,
+      "ga": 0
+    },
+    {
+      "id": "581b7432",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-14",
+      "home": "Dandol Academy",
+      "away": "Oscar All Stars",
+      "gh": 9,
+      "ga": 1
+    },
+    {
+      "id": "dd28611b",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-14",
+      "home": "Dikolobe United",
+      "away": "CNJ United",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "aab3367f",
+      "streamId": "s4_stream_c2",
+      "date": "2026-02-14",
+      "home": "Pragmic",
+      "away": "FC Inter",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "f7e3179e",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-14",
+      "home": "Dinho",
+      "away": "Mphahlele Shamrocks",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "1b2f891e",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-14",
+      "home": "Dikgabo Big Five",
+      "away": "Mawaneng Home Stars",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "2c620389",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-14",
+      "home": "Cheetahs",
+      "away": "Most Wanted",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "9226c810",
+      "streamId": "s4_stream_c2",
+      "date": "2026-02-14",
+      "home": "Excellence Academy",
+      "away": "Seshego City Warriors",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "5d2b2781",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-14",
+      "home": "Phinnet City",
+      "away": "Ocean Swallows",
+      "gh": 5,
+      "ga": 1
+    },
+    {
+      "id": "2a6fe5df",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-14",
+      "home": "Segopje Movers",
+      "away": "Luka United",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "be72f560",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-21",
+      "home": "Mazau",
+      "away": "Lesetja Academy",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "65065845",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-21",
+      "home": "Bachoroma",
+      "away": "Dandol Academy",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "7b90a48a",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-21",
+      "home": "Mapesa",
+      "away": "Most Wanted",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "6753045a",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-21",
+      "home": "Maeba Chiefs",
+      "away": "D-Mexico",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "6a1ce5f1",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-21",
+      "home": "Lethamaga",
+      "away": "Mandebele Happy Boys",
+      "gh": 0,
+      "ga": 3
+    },
+    {
+      "id": "aa119e18",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-21",
+      "home": "Ditatsu H Brothers",
+      "away": "Avon PSG",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "95367127",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-21",
+      "home": "Letjeka",
+      "away": "Seomong Jumbers",
+      "gh": 1,
+      "ga": 6
+    },
+    {
+      "id": "f64aed76",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-21",
+      "home": "University of Limpopo",
+      "away": "Segopje Movers",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "a7e55ab1",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-21",
+      "home": "Milano",
+      "away": "Phinnet City",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "b87746f2",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-21",
+      "home": "Mandebele Happy Fighters",
+      "away": "Dikgabo Big Five",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "2a352247",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-21",
+      "home": "Graceland",
+      "away": "Machaba XI",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "16c70297",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-21",
+      "home": "Mapalies Academy",
+      "away": "Oscar All Stars",
+      "gh": 3,
+      "ga": 1
+    },
+    {
+      "id": "b45294d0",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-21",
+      "home": "Barcelona Sports Academy",
+      "away": "Dikolobe United",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "f118fbbb",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-21",
+      "home": "Mphahlele Shamrocks",
+      "away": "Ocean Swallows",
+      "gh": 2,
+      "ga": 3
+    },
+    {
+      "id": "b959eb73",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-21",
+      "home": "Mapatjakeng Liverpool",
+      "away": "ZB United",
+      "gh": 3,
+      "ga": 2
+    },
+    {
+      "id": "d0350f45",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-21",
+      "home": "Bestmen United",
+      "away": "Mankwatla",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "3eebeee9",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-21",
+      "home": "Mashaha S Complex",
+      "away": "Maswaiswai",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "dbd068f3",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-21",
+      "home": "CNJ United",
+      "away": "Polokwane United",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "87f05f83",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-21",
+      "home": "Mawaneng Home Stars",
+      "away": "ZB Black Pirates",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "08abca25",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-21",
+      "home": "Luka United",
+      "away": "Moria Sweepers",
+      "gh": 1,
+      "ga": 4
+    },
+    {
+      "id": "1c98729a",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-21",
+      "home": "Mentz United",
+      "away": "Cheetahs",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "6a6325e6",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-28",
+      "home": "Graceland",
+      "away": "Bestmen United",
+      "gh": 3,
+      "ga": 1
+    },
+    {
+      "id": "5654bbca",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-28",
+      "home": "Mashaha S Complex",
+      "away": "Dandol Academy",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "ce4f19ed",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-28",
+      "home": "Polokwane United",
+      "away": "Barcelona Sports Academy",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "eba7f09a",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-28",
+      "home": "Cape Ramplers",
+      "away": "Dinho",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "0fdea0a1",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-28",
+      "home": "Dikgabo Big Five",
+      "away": "ZB Black Pirates",
+      "gh": 2,
+      "ga": 3
+    },
+    {
+      "id": "8f2755ee",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-28",
+      "home": "Machaba XI",
+      "away": "Lesetja Academy",
+      "gh": 5,
+      "ga": 1
+    },
+    {
+      "id": "690d033b",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-28",
+      "home": "Mapalies Academy",
+      "away": "Korea",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "28cbc15d",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-28",
+      "home": "Moria Sweepers",
+      "away": "University of Limpopo",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "39f01c38",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-28",
+      "home": "D-Mexico",
+      "away": "Phinnet City",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "26cbb3b3",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-28",
+      "home": "Mandebele Happy Boys",
+      "away": "Mawaneng Home Stars",
+      "gh": 5,
+      "ga": 1
+    },
+    {
+      "id": "c6e07c80",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-28",
+      "home": "Mankwatla",
+      "away": "Avon PSG",
+      "gh": 2,
+      "ga": 3
+    },
+    {
+      "id": "564dff7e",
+      "streamId": "s2_stream_b",
+      "date": "2026-02-28",
+      "home": "Oscar All Stars",
+      "away": "Seomong Jumbers",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "e54f4ded",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-28",
+      "home": "Dikolobe United",
+      "away": "Segopje Movers",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "28a70d6b",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-28",
+      "home": "Diphuti Tsa Boroka",
+      "away": "Ocean Swallows",
+      "gh": 3,
+      "ga": 3
+    },
+    {
+      "id": "42ea3210",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-28",
+      "home": "Mandebele Happy Fighters",
+      "away": "Mapatjakeng Liverpool",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "f5dcf46d",
+      "streamId": "s0_stream_a1",
+      "date": "2026-02-28",
+      "home": "Mazau",
+      "away": "Ditatsu H Brothers",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "59b7a875",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-28",
+      "home": "Most Wanted",
+      "away": "CNJ United",
+      "gh": 4,
+      "ga": 0
+    },
+    {
+      "id": "ec2c49fa",
+      "streamId": "s5_stream_d1",
+      "date": "2026-02-28",
+      "home": "Maeba Chiefs",
+      "away": "Mphahlele Shamrocks",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "6e20c13b",
+      "streamId": "s6_stream_d2",
+      "date": "2026-02-28",
+      "home": "Lethamaga",
+      "away": "ZB United",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "a7299e2f",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-28",
+      "home": "Mentz United",
+      "away": "Luka United",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "c76d3d79",
+      "streamId": "s3_stream_c1",
+      "date": "2026-02-28",
+      "home": "Cheetahs",
+      "away": "Mapesa",
+      "gh": 1,
+      "ga": 3
+    }
+  ]
+}
