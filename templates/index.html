@@ -285,7 +285,11 @@ td.pts { font-weight:800; color:var(--brand); }
   .chart-grid { grid-template-columns: 1fr; }
   .chart-card .canvas-wrap { height:220px; }
 
-  th, td { padding:0.5rem 0.4rem; font-size:0.82rem; white-space:nowrap; }
+  th, td { padding:0.4rem 0.3rem; font-size:0.68rem; white-space:normal; word-break:break-word; line-height:1.25; }
+  td.num, th.num { padding-left:0.15rem; padding-right:0.15rem; }
+  .form-badge { width:15px; height:15px; line-height:15px; font-size:8px; margin-right:1px; }
+  table a { font-size:0.68rem; }
+  td button.mini, td button.danger { padding:0.25rem 0.4rem; font-size:0.62rem; margin:1px 0; display:inline-block; }
 
   .modal { padding:1.1rem; max-height:85vh; overflow-y:auto; }
   .dropdown-menu { min-width:0; width:min(280px, 90vw); }
