@@ -215,13 +215,49 @@ td.pts { font-weight:700; color:#1a472a; }
   display:flex; gap:10px; justify-content:flex-end; margin-top:22px;
 }
 
-@media (max-width: 600px) {
-  header.topbar { padding:12px 14px; gap:10px; }
+/* Any panel that gets a wide table injected into it scrolls horizontally
+   instead of blowing out the page width. */
+#standingsTableWrap, #resultsTableWrap, #dashContent, #teamContent,
+#playersContent, #playerContent {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 700px) {
+  header.topbar {
+    padding:10px 12px; gap:8px;
+    flex-wrap:wrap;
+  }
   header.topbar h1 { font-size:16px; }
-  header.topbar .league-picker { min-width:150px; flex:1; }
-  main { padding:14px; }
-  .stat-card .value { font-size:22px; }
-  th, td { padding:7px 6px; font-size:13px; }
+  header.topbar .league-picker { min-width:0; flex:1 1 100%; order:1; }
+  header.topbar .spacer { display:none; }
+  header.topbar .user-chip { order:2; font-size:12px; padding:5px 10px; }
+  header.topbar .dropdown { order:3; }
+  header.topbar > button.icon-btn { order:4; }
+
+  nav.tabs { padding:0 10px; }
+  nav.tabs button { padding:11px 12px; font-size:13px; }
+
+  main { padding:12px; }
+
+  /* Filter/form rows stack into single-column mobile forms instead of
+     squeezing several fixed-width controls onto one line. */
+  .row { flex-direction:column; align-items:stretch; }
+  .row > * { flex-shrink:1; width:100%; }
+  .row label { margin-top:6px; }
+
+  .stat-grid { grid-template-columns: repeat(2, 1fr); gap:10px; }
+  .stat-card { padding:14px; }
+  .stat-card .value { font-size:20px; }
+
+  .chart-grid { grid-template-columns: 1fr; }
+  .chart-card .canvas-wrap { height:220px; }
+
+  th, td { padding:7px 6px; font-size:13px; white-space:nowrap; }
+
+  .modal { padding:18px; max-height:85vh; overflow-y:auto; }
+  .dropdown-menu { min-width:0; width:min(280px, 90vw); }
 }
 </style>
 </head>
