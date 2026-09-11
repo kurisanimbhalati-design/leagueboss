@@ -119,7 +119,7 @@ extension WebViewModel: WKUIDelegate {
 extension WebViewModel: WKDownloadDelegate {
     func download(
         _ download: WKDownload,
-        decideDestinationUsingResponse response: URLResponse,
+        decideDestinationUsing response: URLResponse,
         suggestedFilename: String,
         completionHandler: @escaping (URL?) -> Void
     ) {
