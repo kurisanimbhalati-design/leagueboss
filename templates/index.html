@@ -1,529 +1,2035 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LeagueBoss</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LeagueBoss — Multi-League Manager</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #0d0d0d; --surface: #161616; --card: #1e1e1e; --border: #2a2a2a;
-    --accent: #c8f000; --accent2: #00c8a0; --text: #f0f0f0; --muted: #666;
-    --danger: #ff4444; --win: #c8f000; --draw: #f0a500; --loss: #ff4444;
-  }
-  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; min-height: 100vh; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f1f5f4;
+  color: #1a202c;
+  min-height: 100vh;
+}
+.hidden { display: none !important; }
 
-  .app-header {
-    background: var(--surface); border-bottom: 1px solid var(--border);
-    padding: 0 2rem; display: flex; align-items: center; justify-content: space-between;
-    height: 64px; position: sticky; top: 0; z-index: 100;
-  }
-  .app-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 3px; color: var(--accent); }
-  .app-logo span { color: var(--text); }
-  .header-actions { display: flex; gap: 0.75rem; }
+/* ─── LOGIN ─── */
+.login-wrap {
+  display:flex; align-items:center; justify-content:center;
+  min-height:100vh; padding:20px;
+  background: linear-gradient(135deg,#1a472a,#2d6a4f);
+}
+.login-card {
+  background:white; padding:36px; border-radius:14px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.3);
+  width:100%; max-width:380px;
+}
+.login-card h1 { color:#1a472a; margin-bottom:6px; font-size:26px; }
+.login-card p.muted { color:#6b7280; margin-bottom:24px; font-size:14px; }
+.login-card label { font-size:13px; color:#374151; display:block; margin-bottom:6px; margin-top:14px; }
+.login-card input {
+  width:100%; padding:11px 14px; font-size:15px;
+  border:1px solid #d1d5db; border-radius:8px;
+}
+.login-card input:focus { outline:none; border-color:#2d6a4f; }
+.login-card button {
+  width:100%; padding:12px; margin-top:20px;
+  background:#1a472a; color:white; border:none; border-radius:8px;
+  font-size:15px; font-weight:600; cursor:pointer;
+}
+.login-card button:hover { background:#2d6a4f; }
+.login-error { color:#dc2626; font-size:13px; margin-top:10px; }
 
-  .layout { display: grid; grid-template-columns: 300px 1fr; min-height: calc(100vh - 64px); }
-  .sidebar { background: var(--surface); border-right: 1px solid var(--border); padding: 1.5rem; overflow-y: auto; }
-  .main { padding: 2rem; overflow-y: auto; }
+/* ─── APP SHELL ─── */
+header.topbar {
+  background:#1a472a; color:white;
+  padding:14px 22px; display:flex; align-items:center; gap:18px;
+  flex-wrap:wrap;
+}
+header.topbar h1 { font-size:18px; flex-shrink:0; }
+header.topbar .league-picker {
+  background:rgba(255,255,255,0.15); color:white; border:none;
+  padding:8px 12px; border-radius:6px; font-size:14px; min-width:200px;
+}
+header.topbar .league-picker option { color:#1a202c; }
+header.topbar .spacer { flex:1; }
+header.topbar .user-chip {
+  background:rgba(255,255,255,0.15); padding:6px 12px;
+  border-radius:20px; font-size:13px;
+}
+header.topbar button.icon-btn {
+  background:rgba(255,255,255,0.15); color:white; border:none;
+  padding:8px 14px; border-radius:6px; cursor:pointer; font-size:13px;
+}
+header.topbar button.icon-btn:hover { background:rgba(255,255,255,0.25); }
 
-  .stream-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
-  .stream-tab {
-    padding: 0.5rem 1.25rem; border-radius: 999px; border: 1px solid var(--border);
-    background: var(--card); color: var(--muted); cursor: pointer;
-    font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; transition: all 0.15s;
-  }
-  .stream-tab:hover { border-color: var(--accent); color: var(--text); }
-  .stream-tab.active { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 600; }
+nav.tabs {
+  background:white; border-bottom:1px solid #e5e7eb;
+  padding:0 22px; display:flex; gap:4px; overflow-x:auto;
+}
+nav.tabs button {
+  background:none; border:none; padding:14px 18px;
+  font-size:14px; font-weight:500; color:#4b5563;
+  cursor:pointer; border-bottom:3px solid transparent;
+  white-space:nowrap;
+}
+nav.tabs button.active { color:#1a472a; border-bottom-color:#1a472a; }
+nav.tabs button:hover:not(.active) { color:#1a472a; }
 
-  .section-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; letter-spacing: 3px; color: var(--muted); margin-bottom: 1rem; margin-top: 1.5rem; }
-  .section-label:first-child { margin-top: 0; }
+main {
+  padding:22px; max-width:1300px; margin:0 auto;
+}
 
-  .form-group { margin-bottom: 1rem; }
-  .form-group label { display: block; font-size: 0.75rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.4rem; }
-  .form-group input, .form-group select {
-    width: 100%; background: var(--card); border: 1px solid var(--border);
-    color: var(--text); padding: 0.6rem 0.75rem; border-radius: 8px;
-    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; outline: none; transition: border-color 0.15s;
-  }
-  .form-group input:focus, .form-group select:focus { border-color: var(--accent); }
-  .form-group select option { background: var(--card); }
+.empty-state {
+  text-align:center; padding:60px 20px; color:#6b7280;
+}
+.empty-state h2 { color:#374151; margin-bottom:8px; }
 
-  .score-row { display: grid; grid-template-columns: 1fr 40px 1fr; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; }
-  .score-sep { text-align: center; color: var(--muted); font-weight: 600; }
+/* ─── CARDS / TABLES ─── */
+.card {
+  background:white; border-radius:10px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.05);
+  padding:20px; margin-bottom:18px;
+}
+.card h2 { font-size:16px; color:#1a472a; margin-bottom:14px; }
+.card h3 { font-size:14px; color:#374151; margin:12px 0 8px; }
+.row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+.row > * { flex-shrink:0; }
+input, select, button {
+  font-family:inherit; font-size:14px;
+}
+input[type=text], input[type=date], input[type=number], input[type=password], select {
+  padding:9px 11px; border:1px solid #d1d5db; border-radius:6px;
+  background:white;
+}
+input:focus, select:focus { outline:none; border-color:#2d6a4f; }
+button.primary {
+  background:#1a472a; color:white; border:none; padding:9px 16px;
+  border-radius:6px; cursor:pointer; font-weight:500;
+}
+button.primary:hover { background:#2d6a4f; }
+button.secondary {
+  background:#e5e7eb; color:#1f2937; border:none; padding:9px 16px;
+  border-radius:6px; cursor:pointer; font-weight:500;
+}
+button.secondary:hover { background:#d1d5db; }
+button.danger {
+  background:#fee2e2; color:#b91c1c; border:none; padding:6px 10px;
+  border-radius:5px; cursor:pointer; font-size:12px; font-weight:500;
+}
+button.danger:hover { background:#fecaca; }
+button.mini {
+  background:#dcfce7; color:#1a472a; border:none; padding:6px 10px;
+  border-radius:5px; cursor:pointer; font-size:12px; font-weight:500;
+}
+button.mini:hover { background:#bbf7d0; }
 
-  .btn {
-    padding: 0.65rem 1.25rem; border-radius: 8px; border: none; cursor: pointer;
-    font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.875rem;
-    transition: all 0.15s; display: inline-flex; align-items: center; gap: 0.4rem;
-  }
-  .btn-primary { background: var(--accent); color: #000; width: 100%; justify-content: center; margin-top: 0.5rem; }
-  .btn-primary:hover { background: #d4ff00; }
-  .btn-secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
-  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-  .btn-danger { background: transparent; color: var(--danger); border: 1px solid var(--danger); padding: 0.3rem 0.6rem; font-size: 0.75rem; }
-  .btn-danger:hover { background: var(--danger); color: white; }
-  .btn-export { background: var(--accent2); color: #000; }
-  .btn-export:hover { background: #00e0b4; }
+table { width:100%; border-collapse:collapse; }
+th, td { padding:9px 10px; text-align:left; border-bottom:1px solid #e5e7eb; font-size:14px; }
+th { background:#f9fafb; color:#374151; font-weight:600; font-size:12px; text-transform:uppercase; }
+tr:hover td { background:#f9fafb; }
+table a { color:#1a472a; text-decoration:none; font-weight:500; }
+table a:hover { text-decoration:underline; color:#2d6a4f; }
+td.num, th.num { text-align:center; }
+td.pts { font-weight:700; color:#1a472a; }
+.form-badge {
+  display:inline-block; width:20px; height:20px; border-radius:50%;
+  text-align:center; line-height:20px; color:white; font-size:11px;
+  font-weight:700; margin-right:2px;
+}
+.form-W { background:#16a34a; }
+.form-D { background:#94a3b8; }
+.form-L { background:#dc2626; }
 
-  .standing-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 2rem; }
-  .standing-header { padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
-  .standing-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 2px; }
-  .standing-meta { font-size: 0.8rem; color: var(--muted); }
+/* ─── DASHBOARD ─── */
+.stat-grid {
+  display:grid; gap:14px; margin-bottom:18px;
+  grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+}
+.stat-card {
+  background:white; padding:18px; border-radius:10px;
+  border-left:4px solid #1a472a;
+}
+.stat-card .label { font-size:12px; color:#6b7280; text-transform:uppercase; letter-spacing:0.5px; }
+.stat-card .value { font-size:28px; font-weight:700; color:#1a472a; margin-top:4px; }
+.stat-card .sub { font-size:12px; color:#6b7280; margin-top:4px; }
 
-  table { width: 100%; border-collapse: collapse; }
-  thead th { padding: 0.75rem 1rem; text-align: left; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); font-weight: 500; }
-  thead th.num { text-align: center; }
-  tbody tr:hover { background: rgba(255,255,255,0.03); }
-  tbody tr:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.04); }
-  tbody td { padding: 0.85rem 1rem; font-size: 0.9rem; }
-  tbody td.num { text-align: center; color: var(--muted); }
-  tbody td.pts { text-align: center; font-weight: 700; color: var(--accent); font-size: 1rem; }
-  tbody td.team-name { font-weight: 500; }
+.chart-grid {
+  display:grid; gap:18px;
+  grid-template-columns:repeat(auto-fit, minmax(380px, 1fr));
+}
+.chart-card { background:white; border-radius:10px; padding:18px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.chart-card h2 { font-size:14px; color:#1a472a; margin-bottom:14px; }
+.chart-card .canvas-wrap { height:280px; position:relative; }
 
-  .pos-badge { display: inline-flex; width: 26px; height: 26px; border-radius: 50%; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; background: var(--border); color: var(--muted); }
-  .pos-1 { background: #ffd700; color: #000; }
-  .pos-2 { background: #c0c0c0; color: #000; }
-  .pos-3 { background: #cd7f32; color: #000; }
+/* ─── DROPDOWN ─── */
+.dropdown { position:relative; display:inline-block; }
+.dropdown-menu {
+  position:absolute; right:0; top:100%; margin-top:4px;
+  background:white; border-radius:8px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  min-width:240px; z-index:50; padding:6px 0;
+  border:1px solid #e5e7eb;
+}
+.dropdown-menu button {
+  display:block; width:100%; text-align:left;
+  background:none; border:none; padding:9px 16px;
+  font-size:14px; color:#374151; cursor:pointer;
+}
+.dropdown-menu button:hover { background:#f0fdf4; color:#1a472a; }
+.dropdown-menu .group-label {
+  padding:8px 16px 4px; font-size:11px; color:#9ca3af;
+  text-transform:uppercase; font-weight:600;
+}
+.dropdown-menu hr { border:none; border-top:1px solid #e5e7eb; margin:4px 0; }
 
-  .form-pills { display: flex; gap: 3px; }
-  .form-pill { width: 18px; height: 18px; border-radius: 50%; font-size: 0.6rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-  .form-pill.W { background: var(--win); color: #000; }
-  .form-pill.D { background: var(--draw); color: #000; }
-  .form-pill.L { background: var(--loss); color: #fff; }
+/* ─── TOAST ─── */
+.toast {
+  position:fixed; bottom:20px; right:20px; z-index:1000;
+  background:#1a472a; color:white; padding:12px 18px;
+  border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.2);
+  opacity:0; transform:translateY(10px); transition:all .25s;
+  max-width:340px;
+}
+.toast.show { opacity:1; transform:translateY(0); }
+.toast.error { background:#dc2626; }
 
-  .result-item {
-    display: grid; grid-template-columns: 1fr auto 1fr auto;
-    align-items: center; gap: 0.75rem; padding: 0.75rem 1rem;
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 10px; margin-bottom: 0.5rem; font-size: 0.875rem;
-    animation: slideIn 0.2s ease;
-  }
-  @keyframes slideIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
-  .result-score { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.25rem 0.75rem; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 2px; color: var(--accent); text-align: center; min-width: 60px; }
-  .result-home { text-align: right; font-weight: 500; }
-  .result-away { text-align: left; font-weight: 500; }
+/* ─── EDIT RESULT MODAL ─── */
+.modal-backdrop {
+  position:fixed; inset:0; background:rgba(0,0,0,0.5);
+  display:flex; align-items:center; justify-content:center; z-index:100;
+  padding:20px;
+}
+.modal {
+  background:white; border-radius:12px; padding:24px;
+  width:100%; max-width:440px;
+  box-shadow:0 30px 60px rgba(0,0,0,0.3);
+}
+.modal h2 { color:#1a472a; margin-bottom:16px; }
+.modal label { display:block; font-size:13px; color:#374151; margin-top:12px; margin-bottom:5px; }
+.modal input, .modal select { width:100%; }
+.modal .modal-actions {
+  display:flex; gap:10px; justify-content:flex-end; margin-top:22px;
+}
 
-  .team-tag { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.75rem; font-size: 0.8rem; margin: 0.25rem; }
-  .team-tag button { background: none; border: none; color: var(--danger); cursor: pointer; font-size: 0.75rem; }
-
-  .empty-state { text-align: center; padding: 3rem 2rem; color: var(--muted); }
-  .empty-state .icon { font-size: 3rem; margin-bottom: 1rem; }
-
-  .setup-panel { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; }
-  .divider { height: 1px; background: var(--border); margin: 1rem 0; }
-
-  .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:200; display:flex; align-items:center; justify-content:center; }
-  .modal-box { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:2rem; width:340px; }
-  .modal-title { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:2px; margin-bottom:0.5rem; }
-  .modal-sub { color:var(--muted); font-size:0.85rem; margin-bottom:1.5rem; }
-  .modal-input { width:100%; background:var(--surface); border:1px solid var(--border); color:var(--text); padding:0.75rem 1rem; border-radius:8px; font-family:'DM Sans',sans-serif; font-size:1rem; outline:none; margin-bottom:1rem; }
-  .modal-input:focus { border-color:var(--accent); }
-  .modal-error { color:var(--danger); font-size:0.85rem; margin-bottom:0.75rem; display:none; }
-  .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--accent); color: #000; padding: 0.75rem 1.25rem; border-radius: 10px; font-weight: 600; font-size: 0.875rem; z-index: 999; animation: toastIn 0.3s ease, toastOut 0.3s ease 2.2s forwards; }
-  @keyframes toastIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes toastOut { to { opacity: 0; transform: translateY(20px); } }
-
-  #tab-setup { display: none; }
+@media (max-width: 600px) {
+  header.topbar { padding:12px 14px; gap:10px; }
+  header.topbar h1 { font-size:16px; }
+  header.topbar .league-picker { min-width:150px; flex:1; }
+  main { padding:14px; }
+  .stat-card .value { font-size:22px; }
+  th, td { padding:7px 6px; font-size:13px; }
+}
 </style>
 </head>
 <body>
 
-<header class="app-header">
-  <div class="app-logo">League<span>Boss</span></div>
-  <div class="header-actions">
-    <button id="login-btn" class="btn btn-secondary" onclick="showLoginModal()">🔒 Admin</button>
-    <button id="logout-btn" class="btn btn-secondary" onclick="doLogout()" style="display:none">🔓 Logout</button>
-    <button class="btn btn-secondary" onclick="showTab('setup')" id="manage-btn" style="display:none">⚙ Manage</button>
-    <button class="btn btn-secondary" onclick="showTab('standings')">⚽ Standings</button>
-    <label class="btn btn-secondary" style="cursor:pointer;" title="Import results from Excel">
-      ↑ Import Excel
-      <input type="file" id="import-file" accept=".xlsx" style="display:none" onchange="importExcel(this)">
-    </label>
-    <a href="/api/export" class="btn btn-export">↓ Export Excel</a>
+<!-- ═══════════ LOGIN ═══════════ -->
+<div id="loginView" class="login-wrap">
+  <div class="login-card">
+    <h1>⚽ LeagueBoss</h1>
+    <p class="muted">Sign in to manage your leagues</p>
+    <label>Username</label>
+    <input id="liUser" autocomplete="username" autofocus>
+    <label>Password</label>
+    <input id="liPass" type="password" autocomplete="current-password">
+    <button onclick="doLogin()">Sign in</button>
+    <div id="liError" class="login-error"></div>
   </div>
-</header>
+</div>
 
-<div class="layout">
-  <aside class="sidebar">
-    <div class="section-label">Log Result</div>
-    <div class="form-group">
-      <label>Stream</label>
-      <select id="result-stream" onchange="populateTeamDropdowns()"></select>
-    </div>
-    <div class="form-group">
-      <label>Match Date</label>
-      <input type="date" id="result-date">
-    </div>
-    <div class="form-group">
-      <label>Home Team</label>
-      <select id="result-home"></select>
-    </div>
-    <div class="form-group">
-      <label>Home Goals</label>
-      <input type="number" id="score-home" min="0" placeholder="0" style="text-align:center; font-size:1.4rem; font-weight:700; color:var(--accent);">
-    </div>
-    <div class="form-group">
-      <label>Away Goals</label>
-      <input type="number" id="score-away" min="0" placeholder="0" style="text-align:center; font-size:1.4rem; font-weight:700;">
-    </div>
-    <div class="form-group">
-      <label>Away Team</label>
-      <select id="result-away"></select>
-    </div>
-    <button class="btn btn-primary" onclick="logResult()">+ Log Result</button>
+<!-- ═══════════ APP ═══════════ -->
+<div id="appView" class="hidden">
+  <header class="topbar">
+    <h1>⚽ LeagueBoss</h1>
+    <select id="leaguePicker" class="league-picker" onchange="onLeagueChange()"></select>
 
-    <div class="divider"></div>
-    <div class="section-label">Recent Results</div>
-    <div id="recent-results"></div>
-  </aside>
+    <div class="spacer"></div>
 
-  <main class="main">
-    <div id="tab-standings">
-      <div class="stream-tabs" id="stream-tabs"></div>
-      <div id="standings-content"></div>
+    <span class="user-chip" id="userChip"></span>
+
+    <div class="dropdown">
+      <button class="icon-btn" onclick="toggleExportMenu(event)">↓ Export ▾</button>
+      <div id="exportMenu" class="dropdown-menu hidden">
+        <div class="group-label">Excel exports</div>
+        <button onclick="exportAll()">All leagues (one workbook)</button>
+        <button onclick="exportCurrentLeague()">Current league</button>
+        <hr>
+        <div class="group-label">From current league</div>
+        <div id="exportStreamList" style="padding:4px 0;"></div>
+        <hr>
+        <div class="group-label">Per team</div>
+        <div id="exportTeamList" style="max-height:240px; overflow-y:auto; padding:4px 0;"></div>
+      </div>
     </div>
-    <div id="tab-setup">
-      <div class="setup-panel">
-        <div class="section-label" style="margin-top:0">Add New Stream</div>
-        <div style="display:flex; gap:0.75rem;">
-          <input type="text" id="new-stream-name" placeholder="e.g. Stream A"
-            style="flex:1; background:var(--surface); border:1px solid var(--border); color:var(--text); padding:0.6rem 0.75rem; border-radius:8px; font-family:'DM Sans',sans-serif; outline:none;"
-            onkeydown="if(event.key==='Enter') addStream()">
-          <button class="btn btn-secondary" onclick="addStream()">Add</button>
+
+    <button class="icon-btn" onclick="doLogout()">Sign out</button>
+  </header>
+
+  <nav class="tabs">
+    <button id="tab-standings" class="active" onclick="showTab('standings')">📋 Standings</button>
+    <button id="tab-results" onclick="showTab('results')">🥅 Results</button>
+    <button id="tab-dashboard" onclick="showTab('dashboard')">📊 Dashboard</button>
+    <button id="tab-team" onclick="showTab('team')">👤 Team Profile</button>
+    <button id="tab-players" onclick="showTab('players')">👥 Players</button>
+    <button id="tab-player" onclick="showTab('player')" style="display:none;">👤 Player Profile</button>
+    <button id="tab-manage" onclick="showTab('manage')">⚙️ Manage</button>
+  </nav>
+
+  <main>
+    <!-- ─── STANDINGS TAB ─── -->
+    <section id="view-standings">
+      <div class="card">
+        <div class="row" style="margin-bottom:14px;">
+          <label style="font-weight:500;">Stream:</label>
+          <select id="standingsStream" onchange="renderStandings()"></select>
+        </div>
+        <div id="standingsTableWrap"></div>
+      </div>
+
+      <div class="card" id="logResultCard">
+        <h2>Log a result</h2>
+        <div class="row">
+          <select id="lrStream"></select>
+          <input type="date" id="lrDate">
+          <select id="lrHome" style="min-width:160px;"></select>
+          <input type="number" id="lrGh" min="0" value="0" style="width:60px;">
+          <span>–</span>
+          <input type="number" id="lrGa" min="0" value="0" style="width:60px;">
+          <select id="lrAway" style="min-width:160px;"></select>
+          <button class="primary" onclick="addResult()">Log Result</button>
         </div>
       </div>
-      <div id="stream-setup-list"></div>
-    </div>
+    </section>
+
+    <!-- ─── RESULTS TAB ─── -->
+    <section id="view-results" class="hidden">
+      <div class="card">
+        <div class="row" style="margin-bottom:14px;">
+          <label>Filter by stream:</label>
+          <select id="resultsFilter" onchange="renderResults()">
+            <option value="">All streams</option>
+          </select>
+          <label>Search team:</label>
+          <input type="text" id="resultsSearch" placeholder="Type a name…" oninput="renderResults()">
+          <span style="color:#6b7280; font-size:13px;" id="resultsCount"></span>
+        </div>
+        <div id="resultsTableWrap"></div>
+      </div>
+    </section>
+
+    <!-- ─── DASHBOARD TAB ─── -->
+    <section id="view-dashboard" class="hidden">
+      <div id="dashContent"></div>
+    </section>
+
+    <!-- ─── TEAM PROFILE TAB ─── -->
+    <section id="view-team" class="hidden">
+      <div id="teamContent"></div>
+    </section>
+
+    <!-- ─── PLAYERS LIST TAB ─── -->
+    <section id="view-players" class="hidden">
+      <div id="playersContent"></div>
+    </section>
+
+    <!-- ─── PLAYER PROFILE TAB ─── -->
+    <section id="view-player" class="hidden">
+      <div id="playerContent"></div>
+    </section>
+
+    <!-- ─── MANAGE TAB ─── -->
+    <section id="view-manage" class="hidden">
+      <div class="card" id="manageLeagues">
+        <h2>Leagues</h2>
+        <div class="row">
+          <input id="newLeagueName" type="text" placeholder="New league name">
+          <button class="primary" onclick="addLeague()">Add league</button>
+        </div>
+        <div id="leagueList" style="margin-top:14px;"></div>
+      </div>
+
+      <div class="card">
+        <h2>Streams in current league</h2>
+        <div class="row">
+          <input id="newStreamName" type="text" placeholder="New stream name (e.g. Stream A1)">
+          <button class="primary" onclick="addStream()">Add stream</button>
+        </div>
+        <div id="streamList" style="margin-top:14px;"></div>
+      </div>
+
+      <div class="card">
+        <h2>Teams</h2>
+        <div class="row">
+          <select id="addTeamStream" style="min-width:180px;"></select>
+          <input id="newTeamName" type="text" placeholder="Team name">
+          <button class="primary" onclick="addTeam()">Add team</button>
+        </div>
+        <div id="teamList" style="margin-top:14px;"></div>
+      </div>
+
+      <div class="card">
+        <h2>Import Excel</h2>
+        <p style="color:#6b7280; font-size:13px; margin-bottom:10px;">
+          Imports into the currently-selected league. Format: date in column A, streams across the top.
+        </p>
+        <div class="row">
+          <input type="file" id="importFile" accept=".xlsx,.xls">
+          <button class="primary" onclick="doImport()">Import</button>
+        </div>
+      </div>
+
+      <div class="card hidden" id="manageUsers">
+        <h2>Users (super-admin only)</h2>
+        <div class="row" style="align-items:flex-end; flex-wrap:wrap;">
+          <div>
+            <label style="display:block;font-size:12px;color:#6b7280;">Username</label>
+            <input id="nuUser" type="text">
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;color:#6b7280;">Full name</label>
+            <input id="nuName" type="text">
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;color:#6b7280;">Password</label>
+            <input id="nuPass" type="password">
+          </div>
+          <button class="primary" onclick="addUser()">Add admin</button>
+        </div>
+        <p style="font-size:12px;color:#6b7280;margin-top:8px;">
+          New users get access only to the leagues you assign below.
+        </p>
+        <div id="userList" style="margin-top:14px;"></div>
+      </div>
+    </section>
   </main>
 </div>
 
+<!-- ═══════════ EDIT RESULT MODAL ═══════════ -->
+<div id="editModal" class="modal-backdrop hidden">
+  <div class="modal">
+    <h2>Edit result</h2>
+    <input type="hidden" id="emId">
+    <label>Date</label>
+    <input type="date" id="emDate">
+    <label>Home team</label>
+    <select id="emHome"></select>
+    <label>Score</label>
+    <div class="row">
+      <input type="number" id="emGh" min="0" style="width:80px;">
+      <span>–</span>
+      <input type="number" id="emGa" min="0" style="width:80px;">
+    </div>
+    <label>Away team</label>
+    <select id="emAway"></select>
+    <div class="modal-actions">
+      <button class="secondary" onclick="closeEditModal()">Cancel</button>
+      <button class="primary" onclick="saveEditResult()">Save changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ EVENT EDITOR MODAL ═══════════ -->
+<div id="eventModal" class="modal-backdrop hidden">
+  <div class="modal" style="max-width:760px; max-height:90vh; overflow-y:auto;">
+    <div id="eventModalBody"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
 <script>
-let appData = { streams: [], results: [] };
-let activeStream = null;
+// ════════════════════ STATE ════════════════════
+let state = {
+  data: { leagues: [], results: [] },
+  me: null,
+  currentLeagueId: null,
+  currentTab: 'standings',
+  currentTeam: null,
+  currentPlayerId: null,
+  dateFrom: '',
+  dateTo: '',
+  teamDateFrom: '',
+  teamDateTo: '',
+  playerFilterTeam: '',
+  playerFilterPosition: '',
+  charts: {},
+};
 
-async function api(method, url, body) {
-  const opts = { method, headers: { 'Content-Type': 'application/json' } };
-  if (body) opts.body = JSON.stringify(body);
-  const res = await fetch(url, opts);
-  return res.json();
+// ════════════════════ HELPERS ════════════════════
+const $ = id => document.getElementById(id);
+function toast(msg, isError=false) {
+  const t = $('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (isError ? ' error' : '');
+  setTimeout(() => t.className = 'toast' + (isError ? ' error' : ''), 2400);
 }
-
-async function loadData() {
-  await checkAuth();
-  appData = await api('GET', '/api/data');
-  if (appData.streams.length > 0 && !activeStream) {
-    activeStream = appData.streams[0].id;
+async function api(url, opts={}) {
+  const r = await fetch(url, {
+    headers: {'Content-Type':'application/json'},
+    credentials: 'same-origin',
+    ...opts,
+  });
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) {
+    toast(data.error || 'Request failed', true);
+    throw new Error(data.error || r.statusText);
   }
-  render();
+  return data;
+}
+function canEditCurrent() {
+  if (!state.me) return false;
+  if (state.me.role === 'super') return true;
+  const allowed = state.me.leagues;
+  if (allowed === 'all') return true;
+  return Array.isArray(allowed) && allowed.includes(state.currentLeagueId);
+}
+function currentLeague() {
+  return state.data.leagues.find(l => l.id === state.currentLeagueId);
 }
 
-function toast(msg) {
-  const el = document.createElement('div');
-  el.className = 'toast';
-  el.textContent = msg;
-  document.body.appendChild(el);
-  setTimeout(() => el.remove(), 2600);
+// ════════════════════ AUTH ════════════════════
+async function checkMe() {
+  const me = await fetch('/api/me', {credentials:'same-origin'}).then(r=>r.json());
+  if (me.logged_in) {
+    state.me = me;
+    $('loginView').classList.add('hidden');
+    $('appView').classList.remove('hidden');
+    await refresh();
+  } else {
+    state.me = null;
+    $('loginView').classList.remove('hidden');
+    $('appView').classList.add('hidden');
+  }
+}
+async function doLogin() {
+  $('liError').textContent = '';
+  try {
+    const out = await fetch('/api/login', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        username: $('liUser').value.trim(),
+        password: $('liPass').value,
+      }),
+    });
+    if (!out.ok) {
+      const d = await out.json();
+      $('liError').textContent = d.error || 'Login failed';
+      return;
+    }
+    await checkMe();
+  } catch (e) {
+    $('liError').textContent = 'Network error';
+  }
+}
+$('liPass').addEventListener('keydown', e => { if (e.key==='Enter') doLogin(); });
+
+async function doLogout() {
+  await fetch('/api/logout', {method:'POST', credentials:'same-origin'});
+  await checkMe();
 }
 
+// ════════════════════ MAIN REFRESH ════════════════════
+async function refresh() {
+  state.data = await api('/api/data');
+  if (state.data.me) state.me = state.data.me;
+
+  $('userChip').textContent = `👤 ${state.me.name || state.me.username} · ${state.me.role==='super'?'Super-Admin':'League Admin'}`;
+
+  // League picker
+  const lp = $('leaguePicker');
+  lp.innerHTML = '';
+  if (state.data.leagues.length === 0) {
+    lp.innerHTML = '<option>No leagues yet</option>';
+  } else {
+    state.data.leagues.forEach(l => {
+      const o = document.createElement('option');
+      o.value = l.id; o.textContent = l.name;
+      lp.appendChild(o);
+    });
+    if (!state.currentLeagueId ||
+        !state.data.leagues.find(l => l.id === state.currentLeagueId)) {
+      state.currentLeagueId = state.data.leagues[0].id;
+    }
+    lp.value = state.currentLeagueId;
+  }
+
+  renderAll();
+}
+
+function onLeagueChange() {
+  state.currentLeagueId = $('leaguePicker').value;
+  renderAll();
+}
+
+function renderAll() {
+  renderStandingsControls();
+  renderStandings();
+  renderResults();
+  if (state.currentTab === 'dashboard') renderDashboard();
+  renderManage();
+  renderExportMenu();
+}
+
+// ════════════════════ TABS ════════════════════
 function showTab(tab) {
-  document.getElementById('tab-standings').style.display = tab === 'standings' ? 'block' : 'none';
-  document.getElementById('tab-setup').style.display = tab === 'setup' ? 'block' : 'none';
-  if (tab === 'setup') renderSetup();
+  state.currentTab = tab;
+  const tabs = ['standings','results','dashboard','team','players','player','manage'];
+  tabs.forEach(t => {
+    $('view-'+t).classList.toggle('hidden', t !== tab);
+    if (t === 'player') return;  // hidden button, managed separately
+    $('tab-'+t).classList.toggle('active', t === tab);
+  });
+  // Show player-profile tab in nav only when active
+  $('tab-player').style.display = (tab === 'player') ? '' : 'none';
+  $('tab-player').classList.toggle('active', tab === 'player');
+
+  if (tab === 'dashboard') renderDashboard();
+  if (tab === 'team') renderTeamProfile();
+  if (tab === 'players') renderPlayersList();
+  if (tab === 'player') renderPlayerProfile();
 }
 
-async function addStream() {
-  const name = document.getElementById('new-stream-name').value.trim();
-  if (!name) return;
-  await api('POST', '/api/stream', { name });
-  document.getElementById('new-stream-name').value = '';
-  await loadData();
-  renderSetup();
-  toast(`Stream "${name}" added`);
+// ════════════════════ STANDINGS ════════════════════
+function renderStandingsControls() {
+  const league = currentLeague();
+  const sel = $('standingsStream');
+  const lrStream = $('lrStream');
+  sel.innerHTML = ''; lrStream.innerHTML = '';
+  if (!league) return;
+  league.streams.forEach(s => {
+    sel.add(new Option(s.name, s.id));
+    lrStream.add(new Option(s.name, s.id));
+  });
+  populateLogResultDropdowns();
 }
 
-async function deleteStream(id) {
-  if (!confirm('Delete this stream and all its results?')) return;
-  await api('DELETE', `/api/stream/${id}`);
-  if (activeStream === id) activeStream = appData.streams[0]?.id || null;
-  await loadData();
-  renderSetup();
+function populateLogResultDropdowns() {
+  const league = currentLeague();
+  if (!league) return;
+  const streamId = $('lrStream').value;
+  const stream = league.streams.find(s => s.id === streamId);
+  const home = $('lrHome'), away = $('lrAway');
+  home.innerHTML = ''; away.innerHTML = '';
+  if (!stream) return;
+  stream.teams.forEach(t => {
+    home.add(new Option(t, t));
+    away.add(new Option(t, t));
+  });
+  if (!$('lrDate').value) $('lrDate').value = new Date().toISOString().slice(0,10);
 }
+document.addEventListener('change', e => {
+  if (e.target.id === 'lrStream') populateLogResultDropdowns();
+});
 
-async function addTeam(streamId) {
-  const input = document.getElementById(`team-input-${streamId}`);
-  const name = input.value.trim();
-  if (!name) return;
-  const res = await api('POST', '/api/team', { streamId, name });
-  if (res.error) { toast(res.error); return; }
-  input.value = '';
-  await loadData();
-  renderSetup();
-  toast(`"${name}" added`);
-}
-
-async function removeTeam(streamId, teamName) {
-  await api('DELETE', '/api/team', { streamId, name: teamName });
-  await loadData();
-  renderSetup();
-}
-
-async function logResult() {
-  const streamId = document.getElementById('result-stream').value;
-  const date     = document.getElementById('result-date').value;
-  const home     = document.getElementById('result-home').value;
-  const away     = document.getElementById('result-away').value;
-  const gh       = document.getElementById('score-home').value;
-  const ga       = document.getElementById('score-away').value;
-
-  if (!streamId || !home || !away || gh === '' || ga === '') {
-    toast('Please fill in all fields'); return;
+async function renderStandings() {
+  const league = currentLeague();
+  const streamId = $('standingsStream').value;
+  const wrap = $('standingsTableWrap');
+  if (!league || !streamId) {
+    wrap.innerHTML = '<div class="empty-state"><h2>No standings yet</h2><p>Add a league and stream to get started.</p></div>';
+    return;
   }
-  if (home === away) { toast('Home and Away must be different'); return; }
+  const rows = await api(`/api/standings/${league.id}/${streamId}`);
+  if (rows.length === 0) {
+    wrap.innerHTML = '<p style="color:#6b7280;padding:20px;text-align:center;">No teams in this stream yet.</p>';
+    return;
+  }
+  let h = '<table><thead><tr><th>#</th><th>Team</th><th class="num">P</th><th class="num">W</th><th class="num">D</th><th class="num">L</th><th class="num">GF</th><th class="num">GA</th><th class="num">GD</th><th class="num">Pts</th><th>Form</th></tr></thead><tbody>';
+  rows.forEach((t,i) => {
+    const formHtml = (t.form||[]).map(f => `<span class="form-badge form-${f}">${f}</span>`).join('');
+    h += `<tr><td>${i+1}</td><td><a href="#" onclick="event.preventDefault(); openTeamProfile('${escapeJs(t.team)}')">${t.team}</a></td>
+      <td class="num">${t.p}</td><td class="num">${t.w}</td>
+      <td class="num">${t.d}</td><td class="num">${t.l}</td>
+      <td class="num">${t.gf}</td><td class="num">${t.ga}</td>
+      <td class="num">${t.gd}</td><td class="num pts">${t.pts}</td>
+      <td>${formHtml}</td></tr>`;
+  });
+  h += '</tbody></table>';
+  wrap.innerHTML = h;
+}
 
-  await api('POST', '/api/result', { streamId, date, home, away, gh, ga });
-  document.getElementById('score-home').value = '';
-  document.getElementById('score-away').value = '';
-  await loadData();
-  toast(`Result logged: ${home} ${gh}–${ga} ${away}`);
+async function addResult() {
+  if (!canEditCurrent()) { toast("You don't have permission for this league", true); return; }
+  try {
+    await api('/api/result', {method:'POST', body: JSON.stringify({
+      leagueId: state.currentLeagueId,
+      streamId: $('lrStream').value,
+      date: $('lrDate').value,
+      home: $('lrHome').value,
+      away: $('lrAway').value,
+      gh: parseInt($('lrGh').value) || 0,
+      ga: parseInt($('lrGa').value) || 0,
+    })});
+    toast('Result logged');
+    await refresh();
+  } catch(e) {}
+}
+
+// ════════════════════ RESULTS (EDIT) ════════════════════
+function renderResults() {
+  const league = currentLeague();
+  const wrap = $('resultsTableWrap');
+  if (!league) { wrap.innerHTML = ''; return; }
+
+  // Stream filter dropdown
+  const f = $('resultsFilter');
+  const prev = f.value;
+  f.innerHTML = '<option value="">All streams</option>';
+  league.streams.forEach(s => f.add(new Option(s.name, s.id)));
+  if (prev) f.value = prev;
+
+  const streamFilter = f.value;
+  const term = ($('resultsSearch').value || '').toLowerCase().trim();
+  let results = state.data.results
+    .filter(r => r.leagueId === league.id)
+    .filter(r => !streamFilter || r.streamId === streamFilter)
+    .filter(r => !term || r.home.toLowerCase().includes(term) || r.away.toLowerCase().includes(term))
+    .sort((a,b) => b.date.localeCompare(a.date));
+
+  $('resultsCount').textContent = `${results.length} match${results.length===1?'':'es'}`;
+
+  if (results.length === 0) {
+    wrap.innerHTML = '<p style="color:#6b7280;padding:20px;text-align:center;">No matches to show.</p>';
+    return;
+  }
+
+  const editable = canEditCurrent();
+  let h = '<table><thead><tr><th>Date</th><th>Stream</th><th>Home</th><th class="num">Score</th><th>Away</th>';
+  if (editable) h += '<th>Actions</th>';
+  h += '</tr></thead><tbody>';
+
+  results.forEach(r => {
+    const stream = league.streams.find(s => s.id === r.streamId);
+    h += `<tr>
+      <td>${r.date}</td>
+      <td>${stream ? stream.name : '—'}</td>
+      <td>${r.home}</td>
+      <td class="num"><b>${r.gh} – ${r.ga}</b></td>
+      <td>${r.away}</td>`;
+    if (editable) {
+      h += `<td>
+        <button class="mini" onclick="openEventEditor('${r.id}')">⚽ Events</button>
+        <button class="mini" onclick="openEditModal('${r.id}')">Edit</button>
+        <button class="danger" onclick="deleteResult('${r.id}')">Delete</button>
+      </td>`;
+    }
+    h += '</tr>';
+  });
+  h += '</tbody></table>';
+  wrap.innerHTML = h;
+}
+
+function openEditModal(id) {
+  const r = state.data.results.find(x => x.id === id);
+  if (!r) return;
+  const league = state.data.leagues.find(l => l.id === r.leagueId);
+  const stream = league.streams.find(s => s.id === r.streamId);
+  $('emId').value = id;
+  $('emDate').value = r.date;
+  $('emGh').value = r.gh;
+  $('emGa').value = r.ga;
+  const home = $('emHome'), away = $('emAway');
+  home.innerHTML = ''; away.innerHTML = '';
+  (stream ? stream.teams : []).forEach(t => {
+    home.add(new Option(t, t));
+    away.add(new Option(t, t));
+  });
+  home.value = r.home; away.value = r.away;
+  $('editModal').classList.remove('hidden');
+}
+function closeEditModal() { $('editModal').classList.add('hidden'); }
+
+async function saveEditResult() {
+  const id = $('emId').value;
+  try {
+    await api(`/api/result/${id}`, {method:'PUT', body: JSON.stringify({
+      date: $('emDate').value,
+      home: $('emHome').value,
+      away: $('emAway').value,
+      gh: parseInt($('emGh').value)||0,
+      ga: parseInt($('emGa').value)||0,
+    })});
+    closeEditModal();
+    toast('Result updated');
+    await refresh();
+  } catch(e) {}
 }
 
 async function deleteResult(id) {
-  await api('DELETE', `/api/result/${id}`);
-  await loadData();
+  if (!confirm('Delete this result? Standings will recalculate.')) return;
+  try {
+    await api(`/api/result/${id}`, {method:'DELETE'});
+    toast('Result deleted');
+    await refresh();
+  } catch(e) {}
 }
 
-function switchStream(id) {
-  activeStream = id;
-  renderStandings();
-  renderStreamTabs();
-  renderRecentResults();
-}
-
-function render() {
-  renderStreamTabs();
-  populateStreamDropdown();
-  populateTeamDropdowns();
-  renderStandings();
-  renderRecentResults();
-}
-
-function renderStreamTabs() {
-  const container = document.getElementById('stream-tabs');
-  container.innerHTML = appData.streams.map(s =>
-    `<button class="stream-tab ${s.id === activeStream ? 'active' : ''}" onclick="switchStream('${s.id}')">${s.name}</button>`
-  ).join('');
-}
-
-async function renderStandings() {
-  const container = document.getElementById('standings-content');
-  if (!activeStream || appData.streams.length === 0) {
-    container.innerHTML = `<div class="empty-state"><div class="icon">⚽</div><p>No streams yet. Go to Manage to add streams and teams.</p></div>`;
-    return;
-  }
-  const stream = appData.streams.find(s => s.id === activeStream);
-  if (!stream || stream.teams.length === 0) {
-    container.innerHTML = `<div class="empty-state"><div class="icon">👥</div><p>No teams in this stream yet. Go to Manage to add teams.</p></div>`;
+// ════════════════════ DASHBOARD ════════════════════
+async function renderDashboard() {
+  const wrap = $('dashContent');
+  const league = currentLeague();
+  if (!league) {
+    wrap.innerHTML = '<div class="empty-state"><h2>No data yet</h2><p>Create a league and log some results to see the dashboard.</p></div>';
     return;
   }
 
-  const standings = await api('GET', `/api/standings/${activeStream}`);
-  const streamResults = appData.results.filter(r => r.streamId === activeStream);
+  // Build query string for date range
+  const qs = [];
+  if (state.dateFrom) qs.push(`from=${state.dateFrom}`);
+  if (state.dateTo)   qs.push(`to=${state.dateTo}`);
+  const url = `/api/dashboard/${league.id}${qs.length ? '?' + qs.join('&') : ''}`;
+  const d = await api(url);
 
-  let html = `
-    <div class="standing-card">
-      <div class="standing-header">
-        <div>
-          <div class="standing-title">${stream.name}</div>
-          <div class="standing-meta">${stream.teams.length} teams · ${streamResults.length} matches played</div>
+  // Destroy any previous charts
+  Object.values(state.charts).forEach(c => c && c.destroy());
+  state.charts = {};
+
+  const totals = d.totals;
+  const big = d.biggest_win;
+  const dr = d.date_range;
+  const rangeLabel = (state.dateFrom || state.dateTo)
+    ? `${state.dateFrom || dr.min_available} → ${state.dateTo || dr.max_available}`
+    : 'All-time';
+
+  wrap.innerHTML = `
+    <!-- DATE RANGE FILTER -->
+    <div class="card" style="padding:14px 18px;">
+      <div class="row" style="align-items:center;">
+        <b style="color:#1a472a;">Showing:</b>
+        <span style="color:#6b7280;">${rangeLabel}</span>
+        <span class="spacer" style="flex:1;"></span>
+        <label style="font-size:13px;">From:</label>
+        <input type="date" id="dashFrom" value="${state.dateFrom}" min="${dr.min_available || ''}" max="${dr.max_available || ''}">
+        <label style="font-size:13px;">To:</label>
+        <input type="date" id="dashTo" value="${state.dateTo}" min="${dr.min_available || ''}" max="${dr.max_available || ''}">
+        <button class="primary" onclick="applyDashboardFilter()">Apply</button>
+        <button class="secondary" onclick="resetDashboardFilter()">All-time</button>
+      </div>
+    </div>
+
+    <!-- STAT TILES -->
+    <div class="stat-grid">
+      <div class="stat-card"><div class="label">Streams</div><div class="value">${totals.streams}</div></div>
+      <div class="stat-card"><div class="label">Teams</div><div class="value">${totals.teams}</div></div>
+      <div class="stat-card"><div class="label">Matches</div><div class="value">${totals.matches}</div></div>
+      <div class="stat-card"><div class="label">Goals</div><div class="value">${totals.goals}</div>
+        <div class="sub">${totals.avg_goals} per match</div></div>
+      <div class="stat-card"><div class="label">Biggest win</div>
+        <div class="value" style="font-size:18px;">${big ? big.score : '—'}</div>
+        <div class="sub">${big ? `${big.home} v ${big.away}` : 'No matches yet'}</div></div>
+    </div>
+
+    <!-- TITLE RACE -->
+    <div class="card">
+      <h2>🏆 Title race tracker</h2>
+      <p style="color:#6b7280; font-size:13px; margin-bottom:10px;">Sorted by closest race first.</p>
+      <table>
+        <thead><tr><th>Stream</th><th>Leader</th><th class="num">Pts</th><th>2nd place</th><th class="num">Pts</th><th class="num">Gap</th><th class="num">MP</th></tr></thead>
+        <tbody>
+          ${d.title_race.map(tr => `
+            <tr>
+              <td>${tr.stream}</td>
+              <td>${tr.leader ? `<a href="#" onclick="event.preventDefault(); openTeamProfile('${escapeJs(tr.leader)}')">${tr.leader}</a>` : '—'}</td>
+              <td class="num pts">${tr.leader_pts}</td>
+              <td>${tr.second ? `<a href="#" onclick="event.preventDefault(); openTeamProfile('${escapeJs(tr.second)}')">${tr.second}</a>` : '—'}</td>
+              <td class="num">${tr.second_pts}</td>
+              <td class="num" style="${tr.gap <= 3 ? 'color:#dc2626;font-weight:700;' : ''}">${tr.gap}</td>
+              <td class="num">${tr.matches_played}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- STREAM COMPARISON -->
+    <div class="card">
+      <h2>📋 Stream comparison</h2>
+      <table>
+        <thead><tr><th>Stream</th><th class="num">Teams</th><th class="num">Matches</th><th class="num">Goals</th><th class="num">Avg/Match</th><th>Leader</th><th class="num">Gap to 2nd</th></tr></thead>
+        <tbody>
+          ${d.stream_comparison.map(s => `
+            <tr>
+              <td>${s.stream}</td>
+              <td class="num">${s.teams}</td>
+              <td class="num">${s.matches}</td>
+              <td class="num">${s.goals}</td>
+              <td class="num">${s.avg_goals}</td>
+              <td>${s.leader === '—' ? '—' : `<a href="#" onclick="event.preventDefault(); openTeamProfile('${escapeJs(s.leader)}')">${s.leader}</a>`}</td>
+              <td class="num">${s.gap_to_2nd}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FORM TABLE -->
+    <div class="card">
+      <h2>🔥 Form table — top 10 in-form teams (last 5 matches)</h2>
+      <table>
+        <thead><tr><th>#</th><th>Team</th><th class="num">MP</th><th class="num">Pts</th><th class="num">GF</th><th class="num">GA</th><th>Form</th></tr></thead>
+        <tbody>
+          ${d.form_table.map((f, i) => `
+            <tr>
+              <td>${i+1}</td>
+              <td><a href="#" onclick="event.preventDefault(); openTeamProfile('${escapeJs(f.team)}')">${f.team}</a></td>
+              <td class="num">${f.matches}</td>
+              <td class="num pts">${f.points}</td>
+              <td class="num">${f.gf}</td>
+              <td class="num">${f.ga}</td>
+              <td>${f.form.map(x => `<span class="form-badge form-${x}">${x}</span>`).join('')}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PLAYER RANKINGS (loaded async) -->
+    <div id="playerRankingsCard" class="card">
+      <h2>👟 Player rankings</h2>
+      <p style="color:#6b7280; font-size:13px;">Loading…</p>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h2>Top scoring teams</h2>
+        <div class="canvas-wrap"><canvas id="chartScorers"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h2>Best defences (fewest goals conceded)</h2>
+        <div class="canvas-wrap"><canvas id="chartDefence"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h2>Most clean sheets</h2>
+        <div class="canvas-wrap"><canvas id="chartCleanSheets"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h2>Worst conceding</h2>
+        <div class="canvas-wrap"><canvas id="chartWorstConceding"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h2>Most common scorelines</h2>
+        <div class="canvas-wrap"><canvas id="chartScorelines"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h2>Match outcomes</h2>
+        <div class="canvas-wrap"><canvas id="chartOutcomes"></canvas></div>
+      </div>
+      <div class="chart-card" style="grid-column:1/-1;">
+        <h2>Goals scored over time</h2>
+        <div class="canvas-wrap"><canvas id="chartTimeline"></canvas></div>
+      </div>
+    </div>
+  `;
+
+  const barOpts = {responsive:true, maintainAspectRatio:false, indexAxis:'y',
+    plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true,ticks:{stepSize:1}}}};
+
+  state.charts.scorers = new Chart($('chartScorers'), {
+    type:'bar',
+    data:{labels:d.top_scorers.map(x=>x[0]),
+          datasets:[{label:'Goals scored', data:d.top_scorers.map(x=>x[1]), backgroundColor:'#2d6a4f'}]},
+    options: barOpts,
+  });
+  state.charts.defence = new Chart($('chartDefence'), {
+    type:'bar',
+    data:{labels:d.best_defence.map(x=>x[0]),
+          datasets:[{label:'Goals conceded', data:d.best_defence.map(x=>x[1]), backgroundColor:'#1a472a'}]},
+    options: barOpts,
+  });
+  state.charts.cleanSheets = new Chart($('chartCleanSheets'), {
+    type:'bar',
+    data:{labels:d.most_clean_sheets.map(x=>x[0]),
+          datasets:[{label:'Clean sheets', data:d.most_clean_sheets.map(x=>x[1]), backgroundColor:'#16a34a'}]},
+    options: barOpts,
+  });
+  state.charts.worstConceding = new Chart($('chartWorstConceding'), {
+    type:'bar',
+    data:{labels:d.worst_conceding.map(x=>x[0]),
+          datasets:[{label:'Goals conceded', data:d.worst_conceding.map(x=>x[1]), backgroundColor:'#dc2626'}]},
+    options: barOpts,
+  });
+  state.charts.scorelines = new Chart($('chartScorelines'), {
+    type:'bar',
+    data:{labels:d.scorelines.map(x=>x[0]),
+          datasets:[{label:'Occurrences', data:d.scorelines.map(x=>x[1]), backgroundColor:'#2d6a4f'}]},
+    options: {responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}},
+  });
+  state.charts.outcomes = new Chart($('chartOutcomes'), {
+    type:'doughnut',
+    data:{labels:['Home wins','Away wins','Draws'],
+          datasets:[{data:[d.outcomes.home_wins,d.outcomes.away_wins,d.outcomes.draws],
+                     backgroundColor:['#16a34a','#dc2626','#94a3b8']}]},
+    options:{responsive:true, maintainAspectRatio:false},
+  });
+  state.charts.timeline = new Chart($('chartTimeline'), {
+    type:'line',
+    data:{labels:d.timeline.dates,
+          datasets:[
+            {label:'Goals per matchday', data:d.timeline.goals,
+             borderColor:'#1a472a', backgroundColor:'rgba(45,106,79,0.15)', fill:true, tension:0.3},
+            {label:'Matches played', data:d.timeline.matches,
+             borderColor:'#dc2626', borderDash:[4,4], fill:false},
+          ]},
+    options:{responsive:true, maintainAspectRatio:false},
+  });
+
+  renderPlayerRankings();  // async, populates after main dashboard
+}
+
+async function renderPlayerRankings() {
+  const card = $('playerRankingsCard');
+  if (!card) return;
+  const league = currentLeague();
+  if (!league) return;
+  const qs = [];
+  if (state.dateFrom) qs.push(`from=${state.dateFrom}`);
+  if (state.dateTo)   qs.push(`to=${state.dateTo}`);
+  const stats = await api(`/api/player-stats/${league.id}${qs.length?'?'+qs.join('&'):''}`);
+
+  if (stats.length === 0) {
+    card.innerHTML = `<h2>👟 Player rankings</h2>
+      <p style="color:#6b7280; padding:10px;">No players have been added yet. Add players from the Players tab, then log match events from the Results tab.</p>`;
+    return;
+  }
+
+  const top = (metric, label, limit=5) => {
+    const list = [...stats].filter(s => s[metric] > 0).sort((a,b) => b[metric]-a[metric]).slice(0, limit);
+    if (list.length === 0) return `<div style="flex:1; min-width:200px;">
+      <h3 style="color:#374151; font-size:13px; margin-bottom:6px;">${label}</h3>
+      <p style="color:#9ca3af; font-size:12px;">No data yet.</p></div>`;
+    return `<div style="flex:1; min-width:220px;">
+      <h3 style="color:#1a472a; font-size:14px; margin-bottom:6px;">${label}</h3>
+      <table style="font-size:13px;">
+        <thead><tr><th>#</th><th>Player</th><th>Team</th><th class="num">${metric==='g_plus_a'?'G+A':metric==='clean_sheets'?'CS':metric.slice(0,1).toUpperCase()+metric.slice(1,3)}</th></tr></thead>
+        <tbody>
+          ${list.map((s,i) => `<tr>
+            <td>${i+1}</td>
+            <td><a href="#" onclick="event.preventDefault(); openPlayerProfile('${s.playerId}')">${s.name}</a></td>
+            <td style="font-size:12px; color:#6b7280;">${s.team || '—'}</td>
+            <td class="num pts">${s[metric]}</td>
+          </tr>`).join('')}
+        </tbody>
+      </table></div>`;
+  };
+
+  card.innerHTML = `
+    <h2>👟 Player rankings</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:24px;">
+      ${top('goals', '🥇 Golden boot (top scorers)')}
+      ${top('assists', '🎯 Most assists')}
+      ${top('g_plus_a', '⭐ G+A leaders')}
+      ${top('clean_sheets', '🧤 Clean sheets')}
+      ${top('yellows', '🟨 Most yellows')}
+      ${top('reds', '🟥 Red cards')}
+    </div>`;
+}
+
+function applyDashboardFilter() {
+  state.dateFrom = $('dashFrom').value || '';
+  state.dateTo = $('dashTo').value || '';
+  renderDashboard();
+}
+function resetDashboardFilter() {
+  state.dateFrom = ''; state.dateTo = '';
+  renderDashboard();
+}
+function escapeJs(s) {
+  return (s || '').replace(/&/g,'&amp;').replace(/'/g,'&#39;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+}
+
+// ════════════════════ TEAM PROFILE ════════════════════
+function openTeamProfile(team) {
+  state.currentTeam = team;
+  showTab('team');
+}
+
+async function renderTeamProfile() {
+  const wrap = $('teamContent');
+  const league = currentLeague();
+  if (!league) {
+    wrap.innerHTML = '<div class="empty-state"><h2>No league selected</h2></div>';
+    return;
+  }
+
+  // Build a flat sorted list of teams in this league
+  const allTeams = [...new Set(league.streams.flatMap(s => s.teams))].sort();
+  if (!state.currentTeam && allTeams.length) state.currentTeam = allTeams[0];
+  if (!allTeams.length) {
+    wrap.innerHTML = '<div class="empty-state"><h2>No teams yet in this league</h2></div>';
+    return;
+  }
+
+  // Build the team picker first (so it's always present even before data loads)
+  const teamPicker = `
+    <div class="card">
+      <div class="row" style="align-items:center; flex-wrap:wrap; gap:10px;">
+        <label style="font-weight:500;">Team:</label>
+        <select id="teamPicker" style="min-width:240px;" onchange="onTeamPickerChange()">
+          ${allTeams.map(t => `<option value="${t.replace(/"/g,'&quot;')}" ${t===state.currentTeam?'selected':''}>${t}</option>`).join('')}
+        </select>
+        <span class="spacer" style="flex:1;"></span>
+        <label style="font-size:13px;">From:</label>
+        <input type="date" id="teamFrom" value="${state.teamDateFrom}">
+        <label style="font-size:13px;">To:</label>
+        <input type="date" id="teamTo" value="${state.teamDateTo}">
+        <button class="primary" onclick="applyTeamFilter()">Apply</button>
+        <button class="secondary" onclick="resetTeamFilter()">All-time</button>
+        <button class="secondary" onclick="exportCurrentTeam()">↓ Excel</button>
+      </div>
+    </div>
+    <div id="teamBody"></div>
+  `;
+  wrap.innerHTML = teamPicker;
+
+  const qs = [];
+  if (state.teamDateFrom) qs.push(`from=${state.teamDateFrom}`);
+  if (state.teamDateTo)   qs.push(`to=${state.teamDateTo}`);
+  const url = `/api/team-dashboard/${league.id}/${encodeURIComponent(state.currentTeam)}${qs.length?'?'+qs.join('&'):''}`;
+  const t = await api(url);
+
+  // Destroy old charts
+  Object.values(state.charts).forEach(c => c && c.destroy());
+  state.charts = {};
+
+  if (!t || !t.summary || t.summary.p === 0) {
+    $('teamBody').innerHTML = `
+      <div class="card empty-state">
+        <h2>${state.currentTeam}</h2>
+        <p>No matches in this date range.</p>
+      </div>`;
+    return;
+  }
+
+  const s = t.summary;
+  $('teamBody').innerHTML = `
+    <!-- HEADER -->
+    <div class="card" style="background:linear-gradient(135deg,#1a472a,#2d6a4f); color:white;">
+      <div style="display:flex; flex-wrap:wrap; align-items:baseline; gap:14px;">
+        <h2 style="color:white; font-size:22px;">${t.team}</h2>
+        <span style="opacity:0.85;">${t.stream || ''} ${t.position ? `· Position #${t.position}` : ''}</span>
+        <span class="spacer" style="flex:1;"></span>
+        <span>Form: ${t.form.map(x => `<span class="form-badge form-${x}">${x}</span>`).join('')}</span>
+      </div>
+    </div>
+
+    <!-- STAT TILES -->
+    <div class="stat-grid">
+      <div class="stat-card"><div class="label">Played</div><div class="value">${s.p}</div></div>
+      <div class="stat-card"><div class="label">Points</div><div class="value">${s.pts}</div>
+        <div class="sub">${s.w}W · ${s.d}D · ${s.l}L</div></div>
+      <div class="stat-card"><div class="label">Win rate</div><div class="value">${s.win_rate}%</div></div>
+      <div class="stat-card"><div class="label">Goals for</div><div class="value">${s.gf}</div>
+        <div class="sub">${s.avg_gf} per match</div></div>
+      <div class="stat-card"><div class="label">Goals against</div><div class="value">${s.ga}</div>
+        <div class="sub">${s.avg_ga} per match</div></div>
+      <div class="stat-card"><div class="label">GD</div>
+        <div class="value" style="color:${s.gd>=0?'#16a34a':'#dc2626'};">${s.gd>=0?'+':''}${s.gd}</div></div>
+      <div class="stat-card"><div class="label">Clean sheets</div><div class="value">${s.clean_sheets}</div></div>
+      <div class="stat-card"><div class="label">Failed to score</div><div class="value">${s.failed_to_score}</div></div>
+    </div>
+
+    <!-- HOME vs AWAY -->
+    <div class="card">
+      <h2>🏠 Home vs Away record</h2>
+      <table>
+        <thead><tr><th>Venue</th><th class="num">W</th><th class="num">D</th><th class="num">L</th><th class="num">GF</th><th class="num">GA</th></tr></thead>
+        <tbody>
+          <tr><td>Home</td><td class="num">${s.home_w}</td><td class="num">${s.home_d}</td><td class="num">${s.home_l}</td><td class="num">${s.home_gf}</td><td class="num">${s.home_ga}</td></tr>
+          <tr><td>Away</td><td class="num">${s.away_w}</td><td class="num">${s.away_d}</td><td class="num">${s.away_l}</td><td class="num">${s.away_gf}</td><td class="num">${s.away_ga}</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- HIGHLIGHTS -->
+    <div class="card">
+      <h2>⭐ Highlights</h2>
+      <div class="row" style="flex-wrap:wrap; gap:16px;">
+        <div style="flex:1; min-width:220px; padding:12px; background:#f0fdf4; border-radius:8px;">
+          <div style="font-size:12px; color:#16a34a; text-transform:uppercase; font-weight:600;">Biggest win</div>
+          ${s.biggest_win ?
+            `<div style="font-size:18px; font-weight:700; color:#1a472a;">${s.biggest_win.score} (${s.biggest_win.venue}) vs ${s.biggest_win.opponent}</div>
+             <div style="color:#6b7280; font-size:13px;">${s.biggest_win.date}</div>` :
+            '<div style="color:#6b7280;">No win yet</div>'}
+        </div>
+        <div style="flex:1; min-width:220px; padding:12px; background:#fef2f2; border-radius:8px;">
+          <div style="font-size:12px; color:#dc2626; text-transform:uppercase; font-weight:600;">Worst loss</div>
+          ${s.worst_loss ?
+            `<div style="font-size:18px; font-weight:700; color:#7f1d1d;">${s.worst_loss.score} (${s.worst_loss.venue}) vs ${s.worst_loss.opponent}</div>
+             <div style="color:#6b7280; font-size:13px;">${s.worst_loss.date}</div>` :
+            '<div style="color:#6b7280;">No defeats</div>'}
         </div>
       </div>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h2>Outcomes</h2>
+        <div class="canvas-wrap"><canvas id="tOutcomes"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h2>Goals over time</h2>
+        <div class="canvas-wrap"><canvas id="tGoals"></canvas></div>
+      </div>
+      <div class="chart-card" style="grid-column:1/-1;">
+        <h2>Points accumulated</h2>
+        <div class="canvas-wrap"><canvas id="tPts"></canvas></div>
+      </div>
+    </div>
+
+    <!-- HEAD-TO-HEAD -->
+    <div class="card">
+      <h2>🤝 Record vs each opponent</h2>
       <table>
-        <thead>
-          <tr>
-            <th style="width:40px">#</th>
-            <th>Team</th>
-            <th class="num">P</th><th class="num">W</th><th class="num">D</th><th class="num">L</th>
-            <th class="num">GF</th><th class="num">GA</th><th class="num">GD</th><th class="num">PTS</th>
-            <th>Form</th>
-          </tr>
-        </thead>
-        <tbody>`;
+        <thead><tr><th>Opponent</th><th class="num">P</th><th class="num">W</th><th class="num">D</th><th class="num">L</th><th class="num">GF</th><th class="num">GA</th><th class="num">Pts</th></tr></thead>
+        <tbody>
+          ${t.opponents.map(o => `
+            <tr>
+              <td><a href="#" onclick="event.preventDefault(); openTeamProfile('${escapeJs(o.opponent)}')">${o.opponent}</a></td>
+              <td class="num">${o.p}</td><td class="num">${o.w}</td><td class="num">${o.d}</td><td class="num">${o.l}</td>
+              <td class="num">${o.gf}</td><td class="num">${o.ga}</td><td class="num pts">${o.pts}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
 
-  standings.forEach((row, i) => {
-    const pos = i + 1;
-    const badge = pos <= 3 ? `pos-${pos}` : '';
-    const last5 = row.form.slice(-5).map(f => `<div class="form-pill ${f}">${f}</div>`).join('');
-    html += `
-      <tr>
-        <td><span class="pos-badge ${badge}">${pos}</span></td>
-        <td class="team-name">${row.team}</td>
-        <td class="num">${row.p}</td><td class="num">${row.w}</td>
-        <td class="num">${row.d}</td><td class="num">${row.l}</td>
-        <td class="num">${row.gf}</td><td class="num">${row.ga}</td>
-        <td class="num" style="color:${row.gd > 0 ? 'var(--win)' : row.gd < 0 ? 'var(--loss)' : 'var(--muted)'}">${row.gd > 0 ? '+' : ''}${row.gd}</td>
-        <td class="pts">${row.pts}</td>
-        <td><div class="form-pills">${last5}</div></td>
-      </tr>`;
+    <!-- MATCHES -->
+    <div class="card">
+      <h2>📅 All matches (${t.matches.length})</h2>
+      <table>
+        <thead><tr><th>Date</th><th>Venue</th><th>Opponent</th><th class="num">Score</th><th class="num">Result</th></tr></thead>
+        <tbody>
+          ${[...t.matches].reverse().map(m => `
+            <tr>
+              <td>${m.date}</td>
+              <td>${m.venue}</td>
+              <td><a href="#" onclick="event.preventDefault(); openTeamProfile('${escapeJs(m.opponent)}')">${m.opponent}</a></td>
+              <td class="num">${m.score}</td>
+              <td class="num"><span class="form-badge form-${m.outcome}">${m.outcome}</span></td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
+
+  // Charts
+  state.charts.tOutcomes = new Chart($('tOutcomes'), {
+    type:'doughnut',
+    data:{labels:['Wins','Draws','Losses'],
+          datasets:[{data:[s.w,s.d,s.l], backgroundColor:['#16a34a','#94a3b8','#dc2626']}]},
+    options:{responsive:true, maintainAspectRatio:false},
   });
-  html += `</tbody></table></div>`;
-  container.innerHTML = html;
+  state.charts.tGoals = new Chart($('tGoals'), {
+    type:'line',
+    data:{labels:t.timeline.dates,
+          datasets:[
+            {label:'Goals for', data:t.timeline.goals_for, borderColor:'#16a34a',
+             backgroundColor:'rgba(22,163,74,0.15)', fill:true, tension:0.3},
+            {label:'Goals against', data:t.timeline.goals_against, borderColor:'#dc2626',
+             backgroundColor:'rgba(220,38,38,0.10)', fill:true, tension:0.3},
+          ]},
+    options:{responsive:true, maintainAspectRatio:false},
+  });
+  state.charts.tPts = new Chart($('tPts'), {
+    type:'line',
+    data:{labels:t.timeline.dates,
+          datasets:[{label:'Cumulative points', data:t.timeline.cumulative_pts,
+                     borderColor:'#1a472a', backgroundColor:'rgba(26,71,42,0.15)',
+                     fill:true, tension:0.2, stepped:false}]},
+    options:{responsive:true, maintainAspectRatio:false,
+      scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}},
+  });
 }
 
-function renderRecentResults() {
-  const container = document.getElementById('recent-results');
-  const recent = [...appData.results]
-    .filter(r => !activeStream || r.streamId === activeStream)
-    .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, 8);
+function onTeamPickerChange() {
+  state.currentTeam = $('teamPicker').value;
+  renderTeamProfile();
+}
+function applyTeamFilter() {
+  state.teamDateFrom = $('teamFrom').value || '';
+  state.teamDateTo = $('teamTo').value || '';
+  renderTeamProfile();
+}
+function resetTeamFilter() {
+  state.teamDateFrom = ''; state.teamDateTo = '';
+  renderTeamProfile();
+}
+function exportCurrentTeam() {
+  if (state.currentTeam && state.currentLeagueId)
+    window.open(`/api/export/team/${state.currentLeagueId}/${encodeURIComponent(state.currentTeam)}`);
+}
 
-  if (recent.length === 0) {
-    container.innerHTML = `<div style="color:var(--muted); font-size:0.85rem; text-align:center; padding:1rem;">No results yet</div>`;
+// ════════════════════ PLAYERS LIST ════════════════════
+async function renderPlayersList() {
+  const wrap = $('playersContent');
+  const league = currentLeague();
+  if (!league) {
+    wrap.innerHTML = '<div class="empty-state"><h2>No league</h2></div>';
     return;
   }
-  container.innerHTML = recent.map(r => `
-    <div class="result-item">
-      <div class="result-home">${r.home}</div>
-      <div class="result-score">${r.gh}–${r.ga}</div>
-      <div class="result-away">${r.away}</div>
-      <button class="btn btn-danger" onclick="deleteResult('${r.id}')">✕</button>
-    </div>`).join('');
-}
+  const editable = canEditCurrent();
+  const allTeams = [...new Set(league.streams.flatMap(s => s.teams))].sort();
+  const players = await api(`/api/players/${league.id}`);
 
-function populateStreamDropdown() {
-  const sel = document.getElementById('result-stream');
-  sel.innerHTML = appData.streams.map(s => `<option value="${s.id}">${s.name}</option>`).join('');
-  if (activeStream) sel.value = activeStream;
-}
+  // Filters
+  let filtered = players;
+  if (state.playerFilterTeam) filtered = filtered.filter(p => p.currentTeam === state.playerFilterTeam);
+  if (state.playerFilterPosition) filtered = filtered.filter(p => p.position === state.playerFilterPosition);
+  filtered.sort((a,b) => (a.currentTeam||'').localeCompare(b.currentTeam||'') || a.name.localeCompare(b.name));
 
-function populateTeamDropdowns() {
-  const streamId = document.getElementById('result-stream').value;
-  const stream = appData.streams.find(s => s.id === streamId);
-  const teams = stream ? stream.teams : [];
-  const opts = teams.map(t => `<option value="${t}">${t}</option>`).join('');
-  document.getElementById('result-home').innerHTML = opts;
-  document.getElementById('result-away').innerHTML = opts;
-}
-
-function renderSetup() {
-  const container = document.getElementById('stream-setup-list');
-  if (!container) return;
-  if (appData.streams.length === 0) {
-    container.innerHTML = `<div class="empty-state"><div class="icon">⚙️</div><p>Add your first stream above</p></div>`;
-    return;
-  }
-  container.innerHTML = appData.streams.map(stream => `
-    <div class="setup-panel">
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:2px;">${stream.name}</div>
-        <button class="btn btn-danger" onclick="deleteStream('${stream.id}')">Delete Stream</button>
+  const addCard = editable ? `
+    <div class="card">
+      <h2>Add a player</h2>
+      <div class="row" style="flex-wrap:wrap;">
+        <input type="text" id="npName" placeholder="Full name" style="min-width:180px;">
+        <select id="npPosition">
+          <option value="">Position…</option>
+          <option value="GK">GK</option><option value="DEF">DEF</option>
+          <option value="MID">MID</option><option value="FWD">FWD</option>
+        </select>
+        <input type="number" id="npNumber" placeholder="#" style="width:60px;">
+        <select id="npTeam" style="min-width:160px;">
+          <option value="">Team…</option>
+          ${allTeams.map(t => `<option value="${t.replace(/"/g,'&quot;')}">${t}</option>`).join('')}
+        </select>
+        <input type="date" id="npStart" value="${new Date().toISOString().slice(0,10)}">
+        <button class="primary" onclick="addPlayer()">Add player</button>
       </div>
-      <div style="display:flex; gap:0.5rem; margin-bottom:0.75rem;">
-        <input type="text" id="team-input-${stream.id}" placeholder="Team name"
-          style="flex:1; background:var(--surface); border:1px solid var(--border); color:var(--text); padding:0.6rem 0.75rem; border-radius:8px; font-family:'DM Sans',sans-serif; outline:none;"
-          onkeydown="if(event.key==='Enter') addTeam('${stream.id}')">
-        <button class="btn btn-secondary" onclick="addTeam('${stream.id}')">Add Team</button>
+    </div>` : '';
+
+  wrap.innerHTML = `
+    ${addCard}
+    <div class="card">
+      <div class="row" style="margin-bottom:10px; flex-wrap:wrap;">
+        <h2 style="margin:0; flex:1;">Players (${filtered.length} of ${players.length})</h2>
+        <label>Team:</label>
+        <select id="pfTeam" onchange="state.playerFilterTeam=this.value; renderPlayersList();">
+          <option value="">All</option>
+          ${allTeams.map(t => `<option value="${t.replace(/"/g,'&quot;')}" ${state.playerFilterTeam===t?'selected':''}>${t}</option>`).join('')}
+        </select>
+        <label>Position:</label>
+        <select id="pfPos" onchange="state.playerFilterPosition=this.value; renderPlayersList();">
+          <option value="">All</option>
+          ${['GK','DEF','MID','FWD'].map(p => `<option value="${p}" ${state.playerFilterPosition===p?'selected':''}>${p}</option>`).join('')}
+        </select>
       </div>
-      <div>
-        ${stream.teams.length === 0
-          ? `<span style="color:var(--muted); font-size:0.85rem;">No teams yet</span>`
-          : stream.teams.map(t => `
-            <span class="team-tag">
-              ${t}
-              <button onclick="removeTeam('${stream.id}', '${t.replace(/'/g, "\\'")}')">✕</button>
-            </span>`).join('')}
+      <div id="playersTableWrap">
+        ${filtered.length === 0
+          ? '<p style="color:#6b7280;padding:20px;text-align:center;">No players match the filters.</p>'
+          : `<table>
+              <thead><tr><th>#</th><th>Name</th><th>Pos</th><th>Team</th>${editable?'<th>Actions</th>':''}</tr></thead>
+              <tbody>
+                ${filtered.map(p => `
+                  <tr>
+                    <td>${p.number ?? ''}</td>
+                    <td><a href="#" onclick="event.preventDefault(); openPlayerProfile('${p.id}')">${p.name}</a></td>
+                    <td>${p.position || ''}</td>
+                    <td>${p.currentTeam ? `<a href="#" onclick="event.preventDefault(); openTeamProfile('${escapeJs(p.currentTeam)}')">${p.currentTeam}</a>` : '<i style="color:#9ca3af;">unsigned</i>'}</td>
+                    ${editable ? `<td>
+                      <button class="mini" onclick="openPlayerProfile('${p.id}')">View</button>
+                      <button class="danger" onclick="deletePlayer('${p.id}','${escapeJs(p.name)}')">Delete</button>
+                    </td>`:''}
+                  </tr>`).join('')}
+              </tbody>
+            </table>`}
       </div>
-    </div>`).join('');
+    </div>
+  `;
 }
 
-async function importExcel(input) {
-  const file = input.files[0];
-  if (!file) return;
-  
-  const formData = new FormData();
-  formData.append('file', file);
-  
-  toast('Importing... please wait');
-  
+async function addPlayer() {
+  const body = {
+    leagueId: state.currentLeagueId,
+    name: $('npName').value.trim(),
+    position: $('npPosition').value || undefined,
+    number: $('npNumber').value ? parseInt($('npNumber').value) : undefined,
+    teamName: $('npTeam').value || undefined,
+    startDate: $('npStart').value || undefined,
+  };
+  if (!body.name) { toast('Name required', true); return; }
   try {
-    const res = await fetch('/api/import', { method: 'POST', body: formData });
-    const data = await res.json();
-    
-    if (data.error) {
-      alert('Import failed: ' + data.error);
-      return;
-    }
-    
-    await loadData();
-    toast(`✅ Imported ${data.imported} results across ${data.streams} streams!`);
-    input.value = '';
-  } catch (e) {
-    alert('Import failed: ' + e.message);
+    await api('/api/player', {method:'POST', body: JSON.stringify(body)});
+    toast('Player added');
+    ['npName','npNumber'].forEach(id => $(id).value='');
+    renderPlayersList();
+  } catch(e){}
+}
+
+async function deletePlayer(id, name) {
+  if (!confirm(`Delete ${name} and all their stats?`)) return;
+  try {
+    await api(`/api/player/${id}`, {method:'DELETE'});
+    toast('Player deleted');
+    renderPlayersList();
+  } catch(e){}
+}
+
+function openPlayerProfile(playerId) {
+  state.currentPlayerId = playerId;
+  showTab('player');
+}
+
+// ════════════════════ PLAYER PROFILE ════════════════════
+async function renderPlayerProfile() {
+  const wrap = $('playerContent');
+  if (!state.currentPlayerId) {
+    wrap.innerHTML = '<div class="empty-state"><h2>No player selected</h2><p>Pick one from the Players tab.</p></div>';
+    return;
   }
+  const d = await api(`/api/player-dashboard/${state.currentPlayerId}`);
+  Object.values(state.charts).forEach(c => c && c.destroy());
+  state.charts = {};
+
+  const p = d.player, s = d.stats || {goals:0,assists:0,g_plus_a:0,yellows:0,reds:0,matches:0,minutes:0,clean_sheets:0};
+  const r = d.rankings;
+  const editable = canEditCurrent();
+  const league = currentLeague();
+  const allTeams = league ? [...new Set(league.streams.flatMap(s => s.teams))].sort() : [];
+
+  const rankBadge = (key, label) => r[key]
+    ? `<div class="stat-card"><div class="label">${label}</div>
+        <div class="value">${r[key].value}</div>
+        <div class="sub">Rank #${r[key].rank} of ${r[key].total}</div></div>`
+    : '';
+
+  wrap.innerHTML = `
+    <!-- BACK NAV -->
+    <div class="row" style="margin-bottom:12px;">
+      <button class="secondary" onclick="showTab('players')">← Back to players</button>
+    </div>
+
+    <!-- HEADER -->
+    <div class="card" style="background:linear-gradient(135deg,#1a472a,#2d6a4f); color:white;">
+      <div style="display:flex; flex-wrap:wrap; align-items:baseline; gap:14px;">
+        <h2 style="color:white; font-size:24px;">${p.number ? `#${p.number} ` : ''}${p.name}</h2>
+        <span style="opacity:0.85;">${p.position || '—'} · ${d.team || 'Unsigned'} · ${d.league_name || ''}</span>
+      </div>
+    </div>
+
+    <!-- STAT CARDS -->
+    <div class="stat-grid">
+      ${rankBadge('goals','Goals')}
+      ${rankBadge('assists','Assists')}
+      ${rankBadge('g_plus_a','G+A')}
+      ${rankBadge('matches','Matches played')}
+      ${rankBadge('minutes','Minutes')}
+      ${rankBadge('clean_sheets','Clean sheets')}
+      <div class="stat-card"><div class="label">Yellow cards</div><div class="value">${s.yellows}</div></div>
+      <div class="stat-card"><div class="label">Red cards</div><div class="value">${s.reds}</div></div>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h2>Goals & assists by match</h2>
+        <div class="canvas-wrap"><canvas id="pGA"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h2>Cumulative goal contributions</h2>
+        <div class="canvas-wrap"><canvas id="pCum"></canvas></div>
+      </div>
+    </div>
+
+    <!-- TEAMMATES -->
+    ${d.teammates && d.teammates.length ? `
+    <div class="card">
+      <h2>Top teammates (by G+A) at ${d.team}</h2>
+      <table>
+        <thead><tr><th>Player</th><th>Pos</th><th class="num">G</th><th class="num">A</th><th class="num">G+A</th><th class="num">MP</th></tr></thead>
+        <tbody>
+          ${d.teammates.map(t => `<tr>
+            <td><a href="#" onclick="event.preventDefault(); openPlayerProfile('${t.playerId}')">${t.name}</a></td>
+            <td>${t.position || ''}</td>
+            <td class="num">${t.goals}</td>
+            <td class="num">${t.assists}</td>
+            <td class="num pts">${t.g_plus_a}</td>
+            <td class="num">${t.matches}</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>` : ''}
+
+    <!-- MATCH LOG -->
+    <div class="card">
+      <h2>Match log (${d.match_log.length})</h2>
+      ${d.match_log.length === 0
+        ? '<p style="color:#6b7280;padding:20px;text-align:center;">No match events logged for this player yet.</p>'
+        : `<table>
+            <thead><tr><th>Date</th><th>Match</th><th class="num">G</th><th class="num">A</th><th class="num">Y</th><th class="num">R</th></tr></thead>
+            <tbody>
+              ${d.match_log.map(m => `<tr>
+                <td>${m.date}</td>
+                <td>${m.home} <b>${m.score}</b> ${m.away}</td>
+                <td class="num">${m.goals || ''}</td>
+                <td class="num">${m.assists || ''}</td>
+                <td class="num">${m.yellows ? '🟨' : ''}</td>
+                <td class="num">${m.reds ? '🟥' : ''}</td>
+              </tr>`).join('')}
+            </tbody>
+          </table>`}
+    </div>
+
+    <!-- REGISTRATIONS / TRANSFERS -->
+    <div class="card">
+      <h2>Team history</h2>
+      ${d.registrations.length === 0
+        ? '<p style="color:#6b7280;">No team registrations.</p>'
+        : `<table>
+            <thead><tr><th>Team</th><th>From</th><th>To</th>${editable?'<th></th>':''}</tr></thead>
+            <tbody>
+              ${d.registrations.map(reg => `<tr>
+                <td><a href="#" onclick="event.preventDefault(); openTeamProfile('${escapeJs(reg.teamName)}')">${reg.teamName}</a></td>
+                <td>${reg.startDate}</td>
+                <td>${reg.endDate || '<i style="color:#16a34a;">current</i>'}</td>
+                ${editable?`<td><button class="danger" onclick="deleteRegistration('${reg.id}')">Remove</button></td>`:''}
+              </tr>`).join('')}
+            </tbody>
+          </table>`}
+      ${editable ? `
+        <div class="row" style="margin-top:14px;">
+          <label>Transfer to:</label>
+          <select id="trTeam" style="min-width:180px;">
+            <option value="">Pick team…</option>
+            ${allTeams.map(t => `<option value="${t.replace(/"/g,'&quot;')}">${t}</option>`).join('')}
+          </select>
+          <input type="date" id="trStart" value="${new Date().toISOString().slice(0,10)}">
+          <button class="primary" onclick="transferPlayer()">Add transfer</button>
+        </div>` : ''}
+    </div>
+  `;
+
+  // Charts
+  const dates = d.match_log.map(m => m.date).reverse();
+  const goals = d.match_log.map(m => m.goals).reverse();
+  const assists = d.match_log.map(m => m.assists).reverse();
+  state.charts.pGA = new Chart($('pGA'), {
+    type:'bar',
+    data:{labels:dates, datasets:[
+      {label:'Goals', data:goals, backgroundColor:'#16a34a'},
+      {label:'Assists', data:assists, backgroundColor:'#1a472a'},
+    ]},
+    options:{responsive:true, maintainAspectRatio:false,
+      scales:{y:{beginAtZero:true,ticks:{stepSize:1}},x:{stacked:false}}},
+  });
+  let cum = 0;
+  const cumArr = dates.map((_, i) => { cum += (goals[i]||0) + (assists[i]||0); return cum; });
+  state.charts.pCum = new Chart($('pCum'), {
+    type:'line',
+    data:{labels:dates, datasets:[{label:'Cumulative G+A', data:cumArr,
+      borderColor:'#1a472a', backgroundColor:'rgba(26,71,42,0.15)', fill:true, tension:0.3}]},
+    options:{responsive:true, maintainAspectRatio:false,
+      scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}},
+  });
 }
 
-// ── AUTH ──────────────────────────────────────────────────────────────────────
-let isAdmin = false;
-
-async function checkAuth() {
-  const res = await api('GET', '/api/me');
-  isAdmin = res.admin;
-  updateAuthUI();
+async function transferPlayer() {
+  const teamName = $('trTeam').value;
+  const startDate = $('trStart').value;
+  if (!teamName) { toast('Pick a team', true); return; }
+  try {
+    await api('/api/registration', {method:'POST', body: JSON.stringify({
+      playerId: state.currentPlayerId, teamName, startDate,
+    })});
+    toast('Transfer recorded');
+    renderPlayerProfile();
+  } catch(e){}
 }
 
-function updateAuthUI() {
-  document.getElementById('login-btn').style.display = isAdmin ? 'none' : 'inline-flex';
-  document.getElementById('logout-btn').style.display = isAdmin ? 'inline-flex' : 'none';
-  document.getElementById('manage-btn').style.display = isAdmin ? 'inline-flex' : 'none';
-  document.querySelector('.sidebar').style.display = isAdmin ? 'block' : 'none';
+async function deleteRegistration(regId) {
+  if (!confirm('Remove this registration?')) return;
+  try {
+    await api(`/api/registration/${regId}`, {method:'DELETE'});
+    toast('Registration removed');
+    renderPlayerProfile();
+  } catch(e){}
 }
 
-function showLoginModal() {
-  document.getElementById('login-modal').style.display = 'flex';
-  document.getElementById('admin-password').value = '';
-  document.getElementById('login-error').style.display = 'none';
-  setTimeout(() => document.getElementById('admin-password').focus(), 100);
+// ════════════════════ MATCH EVENT EDITOR ════════════════════
+let _eventBuffer = [];  // working copy while editing
+let _eventResultId = null;
+
+async function openEventEditor(resultId) {
+  _eventResultId = resultId;
+  const r = state.data.results.find(x => x.id === resultId);
+  if (!r) return;
+  // Load existing events
+  const [events, homeRoster, awayRoster] = await Promise.all([
+    api(`/api/match-events/${resultId}`),
+    api(`/api/roster/${r.leagueId}/${encodeURIComponent(r.home)}?date=${r.date}`),
+    api(`/api/roster/${r.leagueId}/${encodeURIComponent(r.away)}?date=${r.date}`),
+  ]);
+  _eventBuffer = events;
+  renderEventEditor(r, homeRoster, awayRoster);
+  $('eventModal').classList.remove('hidden');
 }
 
-function hideLoginModal() {
-  document.getElementById('login-modal').style.display = 'none';
+function closeEventEditor() {
+  $('eventModal').classList.add('hidden');
+  _eventBuffer = []; _eventResultId = null;
 }
 
-async function doLogin() {
-  const password = document.getElementById('admin-password').value;
-  const res = await api('POST', '/api/login', { password });
-  if (res.ok) {
-    isAdmin = true;
-    hideLoginModal();
-    updateAuthUI();
-    toast('Welcome back, Admin!');
+function renderEventEditor(r, homeRoster, awayRoster) {
+  const rosters = {[r.home]: homeRoster, [r.away]: awayRoster};
+
+  const renderTeamSection = (teamName, score, roster) => {
+    const goals = _eventBuffer.filter(e => e.type==='goal' && e.team===teamName);
+    const cards = _eventBuffer.filter(e => e.type==='card' && e.team===teamName);
+    const subs = _eventBuffer.filter(e => e.type==='sub' && e.team===teamName);
+    const lineup = _eventBuffer.filter(e => e.type==='lineup' && e.team===teamName);
+    const starters = lineup.filter(e => e.role==='start').map(e => e.playerId);
+    const bench = lineup.filter(e => e.role==='bench').map(e => e.playerId);
+    const keeperEv = _eventBuffer.find(e => e.type==='keeper' && e.team===teamName);
+
+    const opts = (selected) => roster.map(p =>
+      `<option value="${p.id}" ${p.id===selected?'selected':''}>${p.number?`#${p.number} `:''}${p.name}${p.position?` (${p.position})`:''}</option>`).join('');
+
+    return `
+      <div class="card" style="margin-bottom:14px;">
+        <h2>${teamName} — ${score} goals</h2>
+        ${roster.length === 0
+          ? `<p style="color:#dc2626;">No players in this team's roster on this date. Add players first.</p>`
+          : `
+          <!-- LINEUP -->
+          <h3>Lineup</h3>
+          <p style="color:#6b7280; font-size:13px;">Tick a player to start, tick again to bench, again to remove.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:6px; margin:8px 0;">
+            ${roster.map(p => {
+              const isStarter = starters.includes(p.id);
+              const isBench = bench.includes(p.id);
+              const state = isStarter ? 'start' : (isBench ? 'bench' : 'out');
+              const color = isStarter ? '#16a34a' : (isBench ? '#94a3b8' : '#e5e7eb');
+              const text = isStarter ? 'white' : (isBench ? 'white' : '#374151');
+              return `<button onclick="cycleLineup('${teamName.replace(/'/g,'&#39;')}','${p.id}')" style="background:${color};color:${text};border:none;padding:6px 10px;border-radius:6px;cursor:pointer;font-size:13px;">${p.number?`#${p.number} `:''}${p.name}${isStarter?' ✓':''}${isBench?' ⏸':''}</button>`;
+            }).join('')}
+          </div>
+
+          <!-- KEEPER OVERRIDE -->
+          <h3>Goalkeeper for clean sheet (optional override)</h3>
+          <select onchange="setKeeper('${teamName.replace(/'/g,'&#39;')}', this.value)">
+            <option value="">Auto (player with position=GK)</option>
+            ${opts(keeperEv?.playerId)}
+          </select>
+
+          <!-- GOALS -->
+          <h3>Goals (${goals.length} / ${score})</h3>
+          ${goals.map((g, i) => `
+            <div class="row" style="margin-bottom:6px;">
+              <input type="number" placeholder="min" value="${g.minute||''}" onchange="updateEvent('${g.id}','minute', this.value)" style="width:65px;">
+              <select onchange="updateEvent('${g.id}','playerId', this.value)" style="min-width:160px;">
+                ${opts(g.playerId)}
+              </select>
+              <span style="color:#6b7280;font-size:12px;">assist:</span>
+              <select onchange="updateEvent('${g.id}','assistPlayerId', this.value)" style="min-width:160px;">
+                <option value="">No assist</option>
+                ${opts(g.assistPlayerId)}
+              </select>
+              <button class="danger" onclick="removeEvent('${g.id}')">×</button>
+            </div>`).join('')}
+          <button class="primary" onclick="addEvent('goal','${teamName.replace(/'/g,'&#39;')}')">+ Add goal</button>
+
+          <!-- CARDS -->
+          <h3 style="margin-top:14px;">Cards</h3>
+          ${cards.map(card => `
+            <div class="row" style="margin-bottom:6px;">
+              <input type="number" placeholder="min" value="${card.minute||''}" onchange="updateEvent('${card.id}','minute', this.value)" style="width:65px;">
+              <select onchange="updateEvent('${card.id}','playerId', this.value)" style="min-width:160px;">${opts(card.playerId)}</select>
+              <select onchange="updateEvent('${card.id}','color', this.value)">
+                <option value="Y" ${card.color==='Y'?'selected':''}>🟨 Yellow</option>
+                <option value="R" ${card.color==='R'?'selected':''}>🟥 Red</option>
+              </select>
+              <button class="danger" onclick="removeEvent('${card.id}')">×</button>
+            </div>`).join('')}
+          <button class="primary" onclick="addEvent('card','${teamName.replace(/'/g,'&#39;')}')">+ Add card</button>
+
+          <!-- SUBS -->
+          <h3 style="margin-top:14px;">Substitutions</h3>
+          ${subs.map(sub => `
+            <div class="row" style="margin-bottom:6px;">
+              <input type="number" placeholder="min" value="${sub.minute||''}" onchange="updateEvent('${sub.id}','minute', this.value)" style="width:65px;">
+              <span style="font-size:12px; color:#dc2626;">OFF:</span>
+              <select onchange="updateEvent('${sub.id}','offPlayerId', this.value)" style="min-width:140px;">${opts(sub.offPlayerId)}</select>
+              <span style="font-size:12px; color:#16a34a;">ON:</span>
+              <select onchange="updateEvent('${sub.id}','onPlayerId', this.value)" style="min-width:140px;">${opts(sub.onPlayerId)}</select>
+              <button class="danger" onclick="removeEvent('${sub.id}')">×</button>
+            </div>`).join('')}
+          <button class="primary" onclick="addEvent('sub','${teamName.replace(/'/g,'&#39;')}')">+ Add substitution</button>
+        `}
+      </div>
+    `;
+  };
+
+  $('eventModalBody').innerHTML = `
+    <h2 style="margin-bottom:6px;">Match events</h2>
+    <p style="color:#6b7280; font-size:14px; margin-bottom:14px;">
+      <b>${r.home} ${r.gh} – ${r.ga} ${r.away}</b> · ${r.date}
+    </p>
+    ${renderTeamSection(r.home, r.gh, homeRoster)}
+    ${renderTeamSection(r.away, r.ga, awayRoster)}
+    <div class="modal-actions" style="position:sticky; bottom:0; background:white; padding-top:12px; border-top:1px solid #e5e7eb;">
+      <button class="secondary" onclick="closeEventEditor()">Cancel</button>
+      <button class="primary" onclick="saveMatchEvents()">Save events</button>
+    </div>
+  `;
+}
+
+function cycleLineup(team, playerId) {
+  const ev = _eventBuffer.find(e => e.type==='lineup' && e.team===team && e.playerId===playerId);
+  if (!ev) {
+    _eventBuffer.push({id:`tmp_${Math.random().toString(36).slice(2,8)}`, type:'lineup', team, playerId, role:'start'});
+  } else if (ev.role === 'start') {
+    ev.role = 'bench';
   } else {
-    document.getElementById('login-error').style.display = 'block';
+    _eventBuffer = _eventBuffer.filter(e => e !== ev);
+  }
+  rerenderEvents();
+}
+
+function setKeeper(team, playerId) {
+  _eventBuffer = _eventBuffer.filter(e => !(e.type==='keeper' && e.team===team));
+  if (playerId) {
+    _eventBuffer.push({id:`tmp_${Math.random().toString(36).slice(2,8)}`, type:'keeper', team, playerId});
   }
 }
 
-async function doLogout() {
-  await api('POST', '/api/logout');
-  isAdmin = false;
-  updateAuthUI();
-  showTab('standings');
-  toast('Logged out');
+function addEvent(type, team) {
+  const newEv = {id:`tmp_${Math.random().toString(36).slice(2,8)}`, type, team};
+  if (type === 'card') newEv.color = 'Y';
+  _eventBuffer.push(newEv);
+  rerenderEvents();
 }
 
-// ── Init ──────────────────────────────────────────────────────────────────────
-document.getElementById('result-date').value = new Date().toISOString().split('T')[0];
-loadData();
+function updateEvent(id, field, value) {
+  const ev = _eventBuffer.find(e => e.id === id);
+  if (ev) ev[field] = value || null;
+}
+
+function removeEvent(id) {
+  _eventBuffer = _eventBuffer.filter(e => e.id !== id);
+  rerenderEvents();
+}
+
+async function rerenderEvents() {
+  const r = state.data.results.find(x => x.id === _eventResultId);
+  if (!r) return;
+  const [homeRoster, awayRoster] = await Promise.all([
+    api(`/api/roster/${r.leagueId}/${encodeURIComponent(r.home)}?date=${r.date}`),
+    api(`/api/roster/${r.leagueId}/${encodeURIComponent(r.away)}?date=${r.date}`),
+  ]);
+  renderEventEditor(r, homeRoster, awayRoster);
+}
+
+async function saveMatchEvents() {
+  try {
+    // Strip temp ids
+    const events = _eventBuffer.map(e => {
+      const copy = {...e};
+      if (copy.id?.startsWith('tmp_')) delete copy.id;
+      return copy;
+    });
+    await api(`/api/match-events/${_eventResultId}`, {
+      method:'PUT', body: JSON.stringify({events}),
+    });
+    toast('Events saved');
+    closeEventEditor();
+  } catch(e){}
+}
+
+// ════════════════════ MANAGE TAB ════════════════════
+function renderManage() {
+  const isSuper = state.me && state.me.role === 'super';
+
+  // Hide league create card for non-super
+  $('manageLeagues').classList.toggle('hidden', !isSuper);
+  $('manageUsers').classList.toggle('hidden', !isSuper);
+
+  // League list
+  const ll = $('leagueList'); ll.innerHTML = '';
+  state.data.leagues.forEach(l => {
+    const div = document.createElement('div');
+    div.style.cssText = 'padding:8px 0; border-bottom:1px solid #f3f4f6; display:flex; align-items:center; gap:10px;';
+    const nameEl = document.createElement('b');
+    nameEl.style.flex = '1';
+    nameEl.textContent = l.name;
+    const renameBtn = document.createElement('button');
+    renameBtn.className = 'mini';
+    renameBtn.textContent = 'Rename';
+    renameBtn.addEventListener('click', () => renameLeague(l.id));
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'danger';
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.addEventListener('click', () => deleteLeague(l.id));
+    div.appendChild(nameEl);
+    div.appendChild(renameBtn);
+    div.appendChild(deleteBtn);
+    ll.appendChild(div);
+  });
+
+  // Streams in current league
+  const sl = $('streamList'); sl.innerHTML = '';
+  const ats = $('addTeamStream'); ats.innerHTML = '';
+  const league = currentLeague();
+  if (league) {
+    league.streams.forEach(s => {
+      const div = document.createElement('div');
+      div.style.cssText = 'padding:8px 0; border-bottom:1px solid #f3f4f6; display:flex; align-items:center; gap:10px;';
+      const nameEl = document.createElement('b');
+      nameEl.style.flex = '1';
+      nameEl.textContent = s.name;
+      const countEl = document.createElement('span');
+      countEl.style.cssText = 'color:#6b7280; font-size:13px;';
+      countEl.textContent = `${s.teams.length} teams`;
+      const renameBtn = document.createElement('button');
+      renameBtn.className = 'mini';
+      renameBtn.textContent = 'Rename';
+      renameBtn.addEventListener('click', () => renameStream(s.id, s.name));
+      const deleteBtn = document.createElement('button');
+      deleteBtn.className = 'danger';
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.addEventListener('click', () => deleteStream(s.id));
+      div.appendChild(nameEl);
+      div.appendChild(countEl);
+      div.appendChild(renameBtn);
+      div.appendChild(deleteBtn);
+      sl.appendChild(div);
+      ats.add(new Option(s.name, s.id));
+    });
+  }
+
+  // Teams
+  const tl = $('teamList'); tl.innerHTML = '';
+  if (league) {
+    league.streams.forEach(s => {
+      if (s.teams.length === 0) return;
+      const h = document.createElement('h3'); h.textContent = s.name; tl.appendChild(h);
+      s.teams.forEach(t => {
+        const div = document.createElement('div');
+        div.style.cssText = 'padding:6px 0; border-bottom:1px solid #f3f4f6; display:flex; align-items:center; gap:10px;';
+        const nameEl = document.createElement('span');
+        nameEl.style.flex = '1';
+        nameEl.textContent = t;
+        const renameBtn = document.createElement('button');
+        renameBtn.className = 'mini';
+        renameBtn.textContent = 'Rename';
+        renameBtn.addEventListener('click', () => renameTeam(s.id, t));
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'danger';
+        removeBtn.textContent = 'Remove';
+        removeBtn.addEventListener('click', () => deleteTeam(s.id, t));
+        div.appendChild(nameEl);
+        div.appendChild(renameBtn);
+        div.appendChild(removeBtn);
+        tl.appendChild(div);
+      });
+    });
+  }
+
+  if (isSuper) renderUsers();
+}
+
+function escapeQ(s) {
+  // HTML-attribute-safe encoding: apostrophes and quotes become entities
+  return (s || '').replace(/&/g,'&amp;').replace(/'/g,'&#39;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+}
+
+// ─── League actions ───
+async function addLeague() {
+  const name = $('newLeagueName').value.trim();
+  if (!name) return;
+  try {
+    await api('/api/league', {method:'POST', body: JSON.stringify({name})});
+    $('newLeagueName').value = '';
+    toast('League added');
+    await refresh();
+  } catch(e) {}
+}
+async function renameLeague(id) {
+  const l = state.data.leagues.find(x => x.id === id);
+  const name = prompt('Rename league:', l.name);
+  if (!name) return;
+  await api(`/api/league/${id}`, {method:'PUT', body: JSON.stringify({name})});
+  toast('Renamed');
+  await refresh();
+}
+async function deleteLeague(id) {
+  if (!confirm('Delete this entire league and all its results?')) return;
+  await api(`/api/league/${id}`, {method:'DELETE'});
+  if (state.currentLeagueId === id) state.currentLeagueId = null;
+  toast('League deleted');
+  await refresh();
+}
+
+// ─── Stream actions ───
+async function addStream() {
+  const name = $('newStreamName').value.trim();
+  if (!name || !state.currentLeagueId) return;
+  try {
+    await api('/api/stream', {method:'POST', body: JSON.stringify({
+      leagueId: state.currentLeagueId, name,
+    })});
+    $('newStreamName').value = '';
+    toast('Stream added');
+    await refresh();
+  } catch(e) {}
+}
+async function renameStream(id, current) {
+  const name = prompt('Rename stream:', current);
+  if (!name) return;
+  await api(`/api/stream/${state.currentLeagueId}/${id}`, {method:'PUT', body: JSON.stringify({name})});
+  toast('Renamed');
+  await refresh();
+}
+async function deleteStream(id) {
+  if (!confirm('Delete this stream and its results?')) return;
+  await api(`/api/stream/${state.currentLeagueId}/${id}`, {method:'DELETE'});
+  toast('Stream deleted');
+  await refresh();
+}
+
+// ─── Team actions ───
+async function addTeam() {
+  const streamId = $('addTeamStream').value;
+  const name = $('newTeamName').value.trim();
+  if (!streamId || !name) return;
+  try {
+    await api('/api/team', {method:'POST', body: JSON.stringify({
+      leagueId: state.currentLeagueId, streamId, name,
+    })});
+    $('newTeamName').value = '';
+    toast('Team added');
+    await refresh();
+  } catch(e) {}
+}
+async function renameTeam(streamId, oldName) {
+  const newName = prompt('Rename team:', oldName);
+  if (!newName || newName === oldName) return;
+  await api('/api/team/rename', {method:'POST', body: JSON.stringify({
+    leagueId: state.currentLeagueId, streamId, oldName, newName,
+  })});
+  toast('Renamed everywhere');
+  await refresh();
+}
+async function deleteTeam(streamId, name) {
+  if (!confirm(`Remove ${name} and all their results?`)) return;
+  await api('/api/team', {method:'DELETE', body: JSON.stringify({
+    leagueId: state.currentLeagueId, streamId, name,
+  })});
+  toast('Team removed');
+  await refresh();
+}
+
+// ─── Import ───
+async function doImport() {
+  if (!state.currentLeagueId) { toast('Pick a league first', true); return; }
+  const f = $('importFile').files[0];
+  if (!f) { toast('Choose a file', true); return; }
+  const fd = new FormData(); fd.append('file', f);
+  const r = await fetch(`/api/import/${state.currentLeagueId}`, {method:'POST', body:fd, credentials:'same-origin'});
+  const j = await r.json();
+  if (j.ok) { toast(`Imported ${j.imported}, skipped ${j.skipped}`); await refresh(); }
+  else toast(j.error || 'Import failed', true);
+}
+
+// ─── Users (super) ───
+async function renderUsers() {
+  const list = await api('/api/users');
+  const ul = $('userList'); ul.innerHTML = '';
+  list.forEach(u => {
+    const div = document.createElement('div');
+    div.style.cssText = 'padding:10px 0; border-bottom:1px solid #f3f4f6;';
+    const leaguesLabel = u.leagues === 'all'
+      ? 'All leagues'
+      : (u.leagues || []).map(id => {
+          const l = state.data.leagues.find(x => x.id === id);
+          return l ? l.name : id;
+        }).join(', ') || 'No leagues assigned';
+
+    const leagueChecks = u.role === 'super' ? '<i style="color:#6b7280;">Has full access.</i>' :
+      state.data.leagues.map(l => `
+        <label style="display:inline-block;margin-right:10px;font-size:13px;">
+          <input type="checkbox" data-user="${u.username}" data-league="${l.id}"
+            ${(u.leagues||[]).includes(l.id) ? 'checked' : ''}
+            onchange="toggleUserLeague('${u.username}', '${l.id}', this.checked)">
+          ${l.name}
+        </label>`).join('');
+
+    div.innerHTML = `
+      <div style="display:flex;align-items:center;gap:10px;">
+        <b style="flex:1;">${u.name} <span style="font-weight:400;color:#6b7280;">(${u.username})</span></b>
+        <span style="font-size:12px;color:#6b7280;">${u.role==='super'?'Super-Admin':'League Admin'}</span>
+        ${u.username !== 'admin' ? `<button class="danger" onclick="deleteUser('${u.username}')">Delete</button>` : ''}
+      </div>
+      <div style="margin-top:4px; font-size:12px; color:#6b7280;">Access: ${leaguesLabel}</div>
+      <div style="margin-top:6px;">${leagueChecks}</div>
+    `;
+    ul.appendChild(div);
+  });
+}
+async function addUser() {
+  const username = $('nuUser').value.trim().toLowerCase();
+  const name = $('nuName').value.trim() || username;
+  const password = $('nuPass').value;
+  if (!username || !password) { toast('Username and password required', true); return; }
+  try {
+    await api('/api/user', {method:'POST', body: JSON.stringify({username, name, password, leagues: []})});
+    $('nuUser').value = $('nuName').value = $('nuPass').value = '';
+    toast('User added — now tick the leagues they manage');
+    renderUsers();
+  } catch(e) {}
+}
+async function deleteUser(username) {
+  if (!confirm(`Delete user ${username}?`)) return;
+  await api(`/api/user/${username}`, {method:'DELETE'});
+  toast('User deleted');
+  renderUsers();
+}
+async function toggleUserLeague(username, leagueId, checked) {
+  // Find the row's existing leagues from the visible checkboxes
+  const boxes = document.querySelectorAll(`input[type=checkbox][data-user="${username}"]`);
+  const leagues = [];
+  boxes.forEach(b => { if (b.checked) leagues.push(b.dataset.league); });
+  await api(`/api/user/${username}`, {method:'PUT', body: JSON.stringify({leagues})});
+  toast('Permissions updated');
+}
+
+// ════════════════════ EXPORT MENU ════════════════════
+function toggleExportMenu(e) {
+  e.stopPropagation();
+  $('exportMenu').classList.toggle('hidden');
+}
+document.addEventListener('click', () => $('exportMenu').classList.add('hidden'));
+$('exportMenu').addEventListener('click', e => e.stopPropagation());
+
+function renderExportMenu() {
+  const league = currentLeague();
+  const streams = $('exportStreamList');
+  const teams = $('exportTeamList');
+  streams.innerHTML = ''; teams.innerHTML = '';
+  if (!league) return;
+  league.streams.forEach(s => {
+    const b = document.createElement('button');
+    b.textContent = `Stream: ${s.name}`;
+    b.onclick = () => exportStream(s.id);
+    streams.appendChild(b);
+  });
+  const allTeams = [...new Set(league.streams.flatMap(s => s.teams))].sort();
+  allTeams.forEach(t => {
+    const b = document.createElement('button');
+    b.textContent = t;
+    b.onclick = () => exportTeam(t);
+    teams.appendChild(b);
+  });
+}
+function exportAll()           { window.open('/api/export/all'); }
+function exportCurrentLeague() { if (state.currentLeagueId) window.open(`/api/export/league/${state.currentLeagueId}`); }
+function exportStream(sid)     { window.open(`/api/export/stream/${state.currentLeagueId}/${sid}`); }
+function exportTeam(name)      { window.open(`/api/export/team/${state.currentLeagueId}/${encodeURIComponent(name)}`); }
+
+// ════════════════════ START ════════════════════
+checkMe();
 </script>
-<div id="login-modal" class="modal-overlay" style="display:none">
-  <div class="modal-box">
-    <div class="modal-title">Admin Login</div>
-    <div class="modal-sub">Enter your password to manage the league</div>
-    <input type="password" id="admin-password" class="modal-input" placeholder="Password"
-      onkeydown="if(event.key==='Enter') doLogin()">
-    <div id="login-error" class="modal-error">Incorrect password. Try again.</div>
-    <button class="btn btn-primary" onclick="doLogin()">Login</button>
-    <button class="btn btn-secondary" style="width:100%; margin-top:0.5rem; justify-content:center;" onclick="hideLoginModal()">Cancel</button>
-  </div>
-</div>
 </body>
 </html>
