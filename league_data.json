@@ -141,6 +141,139 @@
           ]
         }
       ]
+    },
+    {
+      "id": "l_b570648f_u_19_tiyani_mabunda",
+      "name": "U/19 Tiyani Mabunda",
+      "streams": [
+        {
+          "id": "s_c7d8e4ff_group_a",
+          "name": "Group A",
+          "teams": [
+            "PEPPS College (U/19)",
+            "Northern Academy (U/19)",
+            "Mitchell House (U/19)",
+            "Standford Lake College (U/19)",
+            "HTS Tom Naude (U/19)",
+            "Hoerskool Piet Potgieter (U/19)"
+          ]
+        },
+        {
+          "id": "s_8f4e3924_group_b",
+          "name": "Group B",
+          "teams": [
+            "Curro Heuwelkruin (U/19)",
+            "Veritas School (U/19)",
+            "Eric Louw (U/19)",
+            "Hoerskool Louis Trichardt (U/19)",
+            "King Fisher (U/19)",
+            "Hoerskool Ben Vorster (U/19)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l_f52e6561_betway_premiership_26_27",
+      "name": "Betway Premiership",
+      "streams": [
+        {
+          "id": "s_48dc00f7_2026_2027",
+          "name": "2026/2027",
+          "teams": [
+            "Polokwane City",
+            "Mamelodi Sundowns",
+            "Kaizer Chiefs",
+            "Orlando Pirates",
+            "Kruger United",
+            "Marumo Gallants",
+            "Sekhukhune United",
+            "Richards Bay",
+            "Durban City",
+            "Milford",
+            "Siwelele",
+            "AmaZulu",
+            "Golden Arrows",
+            "Stellenbosch",
+            "Chippa United",
+            "TS Galaxy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l_9225918d_u_15_tiyani_mabunda",
+      "name": "U/15 Tiyani Mabunda",
+      "streams": [
+        {
+          "id": "s_96af2d59_group_a_under_15",
+          "name": "Group A - Under 15",
+          "teams": [
+            "PEPPS College (U/15)",
+            "Hoerskool Piet Potgieter (U/15)",
+            "Standford Lake College (U/15)",
+            "HTS Tom Naude (U/15)",
+            "Northern Academy (U/15)",
+            "Mitchell House (U/15)"
+          ]
+        },
+        {
+          "id": "s_792c4a83_ground_b_under_15",
+          "name": "Ground B - Under 15",
+          "teams": [
+            "Curro Heuwelkruin (U/15)",
+            "Hoerskool Ben Vorster (U/15)",
+            "Eric Louw (U/15)",
+            "King Fisher (U/15)",
+            "Hoerskool Louis Trichardt (U/15)",
+            "Veritas School (U/15)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l_4a24d6e3_motsepe_foundation_champ",
+      "name": "Motsepe Foundation Championship",
+      "streams": [
+        {
+          "id": "s_081922f4_2026_2027",
+          "name": "2026/2027",
+          "teams": [
+            "Real Native",
+            "Venda",
+            "Cape Town City",
+            "Midlands Wanderers",
+            "Pretoria University",
+            "Magesi",
+            "Lerumo Lions",
+            "Orbit College",
+            "Leicesterford City",
+            "Gomora United",
+            "The Bees",
+            "Hope",
+            "Upington City",
+            "Highbury",
+            "Hungry Lions",
+            "North West University"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l_de58e88c_u_17_tiyani_mabunda",
+      "name": "U/17 Tiyani Mabunda",
+      "streams": [
+        {
+          "id": "s_0bcd8e6e_2025_2026",
+          "name": "2025/2026",
+          "teams": [
+            "Northern Academy (U/17)",
+            "PEPPS College (U/17)",
+            "HTS Tom Naude (U/17)",
+            "Standford Lake College (U/17)",
+            "Hoerskool Piet Potgieter (U/17)"
+          ]
+        }
+      ]
     }
   ],
   "results": [
@@ -2715,16 +2848,6 @@
       "leagueId": "l_0b8610a7_default"
     },
     {
-      "id": "04c56985",
-      "streamId": "s5_stream_d1",
-      "date": "2026-03-21",
-      "home": "Milano",
-      "away": "Diphuti Tsa Boroka",
-      "gh": 1,
-      "ga": 2,
-      "leagueId": "l_0b8610a7_default"
-    },
-    {
       "id": "74c8d4af",
       "streamId": "s5_stream_d1",
       "date": "2026-03-21",
@@ -3065,16 +3188,6 @@
       "leagueId": "l_0b8610a7_default"
     },
     {
-      "id": "03545772",
-      "streamId": "s5_stream_d1",
-      "date": "2026-04-11",
-      "home": "Dinho",
-      "away": "Milano",
-      "gh": 2,
-      "ga": 0,
-      "leagueId": "l_0b8610a7_default"
-    },
-    {
       "id": "7d50738f",
       "streamId": "s3_stream_c1",
       "date": "2026-04-11",
@@ -3262,16 +3375,6 @@
       "away": "Lethamaga",
       "gh": 1,
       "ga": 0,
-      "leagueId": "l_0b8610a7_default"
-    },
-    {
-      "id": "a6117c5d",
-      "streamId": "s5_stream_d1",
-      "date": "2026-04-19",
-      "home": "Milano",
-      "away": "Ocean Swallows",
-      "gh": 0,
-      "ga": 2,
       "leagueId": "l_0b8610a7_default"
     },
     {
@@ -3531,16 +3634,6 @@
       "home": "Dinho",
       "away": "D-Mexico",
       "gh": 0,
-      "ga": 0,
-      "leagueId": "l_0b8610a7_default"
-    },
-    {
-      "id": "2f8a6ffe",
-      "streamId": "s5_stream_d1",
-      "date": "2026-04-26",
-      "home": "Cape Ramplers",
-      "away": "Milano",
-      "gh": 2,
       "ga": 0,
       "leagueId": "l_0b8610a7_default"
     },
@@ -5483,6 +5576,1676 @@
       "away": "Barcelona Sports Academy",
       "gh": 0,
       "ga": 1
+    },
+    {
+      "id": "7bfe7c8b",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s3_stream_c1",
+      "date": "2026-06-19",
+      "home": "University of Limpopo",
+      "away": "Moria Sweepers",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "9ed1e999",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s4_stream_c2",
+      "date": "2026-06-20",
+      "home": "Peace United",
+      "away": "Mararas",
+      "gh": 5,
+      "ga": 6
+    },
+    {
+      "id": "7150bc96",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s4_stream_c2",
+      "date": "2026-06-21",
+      "home": "Excellence Academy",
+      "away": "Cairo",
+      "gh": 3,
+      "ga": 1
+    },
+    {
+      "id": "21975f97",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s4_stream_c2",
+      "date": "2026-06-21",
+      "home": "Pragmic",
+      "away": "Mailakgomo",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "cd631d9e",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s4_stream_c2",
+      "date": "2026-06-21",
+      "home": "Star Sign",
+      "away": "FC Inter",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "5f76d8aa",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s4_stream_c2",
+      "date": "2026-06-21",
+      "home": "Thogoaneng United",
+      "away": "LSSE",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "a1deb081",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s4_stream_c2",
+      "date": "2026-06-21",
+      "home": "Seshego City Warriors",
+      "away": "Mabiloane Tunisia",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "bd1ce74b",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s3_stream_c1",
+      "date": "2026-06-21",
+      "home": "University of Limpopo",
+      "away": "Luka United",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "f447a100",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s3_stream_c1",
+      "date": "2026-06-21",
+      "home": "Barcelona Sports Academy",
+      "away": "Mapesa",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "c2ff1148",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s3_stream_c1",
+      "date": "2026-06-21",
+      "home": "Dikolobe United",
+      "away": "Mentz United",
+      "gh": 4,
+      "ga": 5
+    },
+    {
+      "id": "6673457f",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s3_stream_c1",
+      "date": "2026-06-21",
+      "home": "Segopje Movers",
+      "away": "Most Wanted",
+      "gh": 4,
+      "ga": 2
+    },
+    {
+      "id": "42ea8fac",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s3_stream_c1",
+      "date": "2026-06-21",
+      "home": "Polokwane United",
+      "away": "Moria Sweepers",
+      "gh": 2,
+      "ga": 3
+    },
+    {
+      "id": "33aa9c17",
+      "leagueId": "l_9962aa81_safa_women_s_regional_le",
+      "streamId": "s_ce330ca6_stream_a1",
+      "date": "2026-06-21",
+      "home": "Mogodumo Sporting Academy",
+      "away": "Emirates Sports Academy",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "b26d176e",
+      "leagueId": "l_9962aa81_safa_women_s_regional_le",
+      "streamId": "s_ce330ca6_stream_a1",
+      "date": "2026-06-21",
+      "home": "University of Limpopo Ladies",
+      "away": "Star Sign Ladies Academy",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "2d895662",
+      "leagueId": "l_9962aa81_safa_women_s_regional_le",
+      "streamId": "s_ce330ca6_stream_a1",
+      "date": "2026-06-21",
+      "home": "Mapheto United Ladies",
+      "away": "Mogodumo Sporting Academy",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "c1c63a9d",
+      "leagueId": "l_9962aa81_safa_women_s_regional_le",
+      "streamId": "s_ce330ca6_stream_a1",
+      "date": "2026-06-21",
+      "home": "Emirates Sports Academy",
+      "away": "Mapheto United Ladies",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "15e1aadf",
+      "leagueId": "l_9962aa81_safa_women_s_regional_le",
+      "streamId": "s_ce330ca6_stream_a1",
+      "date": "2026-06-21",
+      "home": "University of Limpopo Ladies",
+      "away": "Beneth United Ladies",
+      "gh": 6,
+      "ga": 0
+    },
+    {
+      "id": "73e1c8ca",
+      "leagueId": "l_9962aa81_safa_women_s_regional_le",
+      "streamId": "s_e2efa992_stream_a2",
+      "date": "2026-06-21",
+      "home": "Denmark Ladies",
+      "away": "Manong Ladies",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "4d1a67cc",
+      "leagueId": "l_9962aa81_safa_women_s_regional_le",
+      "streamId": "s_e2efa992_stream_a2",
+      "date": "2026-06-21",
+      "home": "Mafefe Royal Queens",
+      "away": "Kappa Ladies",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "c44825a2",
+      "leagueId": "l_9962aa81_safa_women_s_regional_le",
+      "streamId": "s_e2efa992_stream_a2",
+      "date": "2026-07-19",
+      "home": "Kappa Ladies",
+      "away": "Denmark Ladies",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "18de08ed",
+      "leagueId": "l_9962aa81_safa_women_s_regional_le",
+      "streamId": "s_e2efa992_stream_a2",
+      "date": "2026-07-19",
+      "home": "Manong Ladies",
+      "away": "Mafefe Royal Queens",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "e1a23d9e",
+      "leagueId": "l_9962aa81_safa_women_s_regional_le",
+      "streamId": "s_ce330ca6_stream_a1",
+      "date": "2026-07-19",
+      "home": "University of Limpopo Ladies",
+      "away": "Sunshine Ladies",
+      "gh": 4,
+      "ga": 0
+    },
+    {
+      "id": "70aae04a",
+      "leagueId": "l_9962aa81_safa_women_s_regional_le",
+      "streamId": "s_ce330ca6_stream_a1",
+      "date": "2026-07-19",
+      "home": "Star Sign Ladies Academy",
+      "away": "Beneth United Ladies",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "75e4e19d",
+      "leagueId": "l_9962aa81_safa_women_s_regional_le",
+      "streamId": "s_ce330ca6_stream_a1",
+      "date": "2026-07-19",
+      "home": "University of Limpopo Ladies",
+      "away": "Emirates Sports Academy",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "4dab224a",
+      "leagueId": "l_9962aa81_safa_women_s_regional_le",
+      "streamId": "s_ce330ca6_stream_a1",
+      "date": "2026-07-19",
+      "home": "Mapheto United Ladies",
+      "away": "Sunshine Ladies",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "2043d8f6",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s3_stream_c1",
+      "date": "2026-07-31",
+      "home": "Cheetahs",
+      "away": "CNJ United",
+      "gh": 5,
+      "ga": 0
+    },
+    {
+      "id": "0d765914",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s3_stream_c1",
+      "date": "2026-07-31",
+      "home": "Polokwane United",
+      "away": "University of Limpopo",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "49f8623a",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s4_stream_c2",
+      "date": "2026-07-31",
+      "home": "FC Inter",
+      "away": "Peace United",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "cf27aab6",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s4_stream_c2",
+      "date": "2026-07-31",
+      "home": "Mabiloane Tunisia",
+      "away": "Cairo",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "d4513ae8",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s4_stream_c2",
+      "date": "2026-07-31",
+      "home": "Mararas",
+      "away": "FC Inter",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "b3e4be03",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s4_stream_c2",
+      "date": "2026-07-31",
+      "home": "Thogoaneng United",
+      "away": "Star Sign",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "13adda25",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s4_stream_c2",
+      "date": "2026-07-31",
+      "home": "Star Sign",
+      "away": "Seshego City Warriors",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "43b13d72",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s4_stream_c2",
+      "date": "2026-07-31",
+      "home": "Thogoaneng United",
+      "away": "Seshego City Warriors",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "222247b7",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s2_stream_b",
+      "date": "2026-07-31",
+      "home": "Seomong Jumbers",
+      "away": "Mapalies Academy",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "946ecf6e",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_c7d8e4ff_group_a",
+      "date": "2026-07-29",
+      "home": "Mitchell House (U/19)",
+      "away": "Standford Lake College (U/19)",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "0f61158a",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_c7d8e4ff_group_a",
+      "date": "2026-07-29",
+      "home": "PEPPS College (U/19)",
+      "away": "Hoerskool Piet Potgieter (U/19)",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "0bf7f6cc",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-07-29",
+      "home": "Eric Louw (U/19)",
+      "away": "Hoerskool Louis Trichardt (U/19)",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "4a180b5c",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-07-29",
+      "home": "Curro Heuwelkruin (U/19)",
+      "away": "Veritas School (U/19)",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "8cd76ae0",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-07-29",
+      "home": "King Fisher (U/19)",
+      "away": "Hoerskool Ben Vorster (U/19)",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "eba726de",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_c7d8e4ff_group_a",
+      "date": "2026-07-29",
+      "home": "Northern Academy (U/19)",
+      "away": "HTS Tom Naude (U/19)",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "3571f6e8",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-01",
+      "home": "Golden Arrows",
+      "away": "Chippa United",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "6a80219d",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-01",
+      "home": "Orlando Pirates",
+      "away": "Milford",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "383e147c",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-01",
+      "home": "Stellenbosch",
+      "away": "AmaZulu",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "a85c217a",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-01",
+      "home": "Sekhukhune United",
+      "away": "Durban City",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "2eff9620",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-01",
+      "home": "Kruger United",
+      "away": "Kaizer Chiefs",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "5e6c3648",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-02",
+      "home": "Richards Bay",
+      "away": "Polokwane City",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "02c1506e",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-02",
+      "home": "Siwelele",
+      "away": "TS Galaxy",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "006828d7",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-07-29",
+      "home": "PEPPS College (U/15)",
+      "away": "Hoerskool Piet Potgieter (U/15)",
+      "gh": 3,
+      "ga": 1
+    },
+    {
+      "id": "abe3bf5a",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-07-29",
+      "home": "Mitchell House (U/15)",
+      "away": "Standford Lake College (U/15)",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "04f58fc3",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-07-29",
+      "home": "Northern Academy (U/15)",
+      "away": "HTS Tom Naude (U/15)",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "afe5a8d3",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_c7d8e4ff_group_a",
+      "date": "2026-08-05",
+      "home": "PEPPS College (U/19)",
+      "away": "HTS Tom Naude (U/19)",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "2cd3b66d",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_c7d8e4ff_group_a",
+      "date": "2026-08-05",
+      "home": "Hoerskool Piet Potgieter (U/19)",
+      "away": "Standford Lake College (U/19)",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "9b1ebd09",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-08-05",
+      "home": "Hoerskool Louis Trichardt (U/19)",
+      "away": "Hoerskool Ben Vorster (U/19)",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "65c13d75",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-08-05",
+      "home": "Curro Heuwelkruin (U/19)",
+      "away": "Eric Louw (U/19)",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "654f44d7",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-08-05",
+      "home": "Veritas School (U/19)",
+      "away": "King Fisher (U/19)",
+      "gh": 0,
+      "ga": 3
+    },
+    {
+      "id": "a23bdaeb",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-11",
+      "home": "Chippa United",
+      "away": "Richards Bay",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "f419026c",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-11",
+      "home": "Marumo Gallants",
+      "away": "Kruger United",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "7d917f6b",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-11",
+      "home": "Polokwane City",
+      "away": "Stellenbosch",
+      "gh": 3,
+      "ga": 3
+    },
+    {
+      "id": "974be867",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-11",
+      "home": "TS Galaxy",
+      "away": "Mamelodi Sundowns",
+      "gh": 2,
+      "ga": 3
+    },
+    {
+      "id": "bbf71bbb",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-12",
+      "home": "AmaZulu",
+      "away": "Orlando Pirates",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "bc79654e",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-12",
+      "home": "Durban City",
+      "away": "Golden Arrows",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "7c64243b",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-12",
+      "home": "Kaizer Chiefs",
+      "away": "Sekhukhune United",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "8aed2198",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-12",
+      "home": "Milford",
+      "away": "Siwelele",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "c36f3c2c",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_c7d8e4ff_group_a",
+      "date": "2026-08-12",
+      "home": "HTS Tom Naude (U/19)",
+      "away": "Mitchell House (U/19)",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "8c0c1fb6",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_c7d8e4ff_group_a",
+      "date": "2026-08-12",
+      "home": "Standford Lake College (U/19)",
+      "away": "PEPPS College (U/19)",
+      "gh": 4,
+      "ga": 2
+    },
+    {
+      "id": "ad62fa5e",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-08-12",
+      "home": "Veritas School (U/19)",
+      "away": "Hoerskool Louis Trichardt (U/19)",
+      "gh": 0,
+      "ga": 3
+    },
+    {
+      "id": "486af8c5",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-08-12",
+      "home": "Eric Louw (U/19)",
+      "away": "Hoerskool Ben Vorster (U/19)",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "1b5655e7",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-08-05",
+      "home": "PEPPS College (U/15)",
+      "away": "HTS Tom Naude (U/15)",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "cbd0dbc3",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-08-05",
+      "home": "Hoerskool Piet Potgieter (U/15)",
+      "away": "Standford Lake College (U/15)",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "d0b00a92",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-08-05",
+      "home": "Northern Academy (U/15)",
+      "away": "Mitchell House (U/15)",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "d031d37d",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-08-12",
+      "home": "Standford Lake College (U/15)",
+      "away": "PEPPS College (U/15)",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "b10c3c72",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-08-12",
+      "home": "HTS Tom Naude (U/15)",
+      "away": "Mitchell House (U/15)",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "6d65ea7e",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-14",
+      "home": "Stellenbosch",
+      "away": "Marumo Gallants",
+      "gh": 3,
+      "ga": 1
+    },
+    {
+      "id": "23a038d1",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-15",
+      "home": "Kaizer Chiefs",
+      "away": "Mamelodi Sundowns",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "3e26fd97",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-15",
+      "home": "AmaZulu",
+      "away": "Siwelele",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "6d2c2b61",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-15",
+      "home": "Sekhukhune United",
+      "away": "Polokwane City",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "ee425770",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-15",
+      "home": "Milford",
+      "away": "Kruger United",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "6899bfcf",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-15",
+      "home": "Durban City",
+      "away": "Richards Bay",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "570eac20",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-16",
+      "home": "Chippa United",
+      "away": "Orlando Pirates",
+      "gh": 0,
+      "ga": 3
+    },
+    {
+      "id": "a678a00e",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-16",
+      "home": "TS Galaxy",
+      "away": "Golden Arrows",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "e1e095e7",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-07-29",
+      "home": "Eric Louw (U/15)",
+      "away": "Hoerskool Louis Trichardt (U/15)",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "bf5bd261",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-07-29",
+      "home": "Curro Heuwelkruin (U/15)",
+      "away": "Veritas School (U/15)",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "09ac9035",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-07-29",
+      "home": "King Fisher (U/15)",
+      "away": "Hoerskool Ben Vorster (U/15)",
+      "gh": 2,
+      "ga": 4
+    },
+    {
+      "id": "664b5874",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-08-05",
+      "home": "Hoerskool Louis Trichardt (U/15)",
+      "away": "Hoerskool Ben Vorster (U/15)",
+      "gh": 6,
+      "ga": 2
+    },
+    {
+      "id": "f211a507",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-08-05",
+      "home": "Curro Heuwelkruin (U/15)",
+      "away": "Eric Louw (U/15)",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "bc47af64",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-08-05",
+      "home": "Veritas School (U/15)",
+      "away": "King Fisher (U/15)",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "1bcd3e73",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-08-12",
+      "home": "Eric Louw (U/15)",
+      "away": "Hoerskool Ben Vorster (U/15)",
+      "gh": 4,
+      "ga": 4
+    },
+    {
+      "id": "c13b34de",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-08-12",
+      "home": "Veritas School (U/15)",
+      "away": "Hoerskool Louis Trichardt (U/15)",
+      "gh": 0,
+      "ga": 4
+    },
+    {
+      "id": "48bd966c",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-08-12",
+      "home": "Curro Heuwelkruin (U/15)",
+      "away": "King Fisher (U/15)",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "34acd19d",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-08-12",
+      "home": "Curro Heuwelkruin (U/19)",
+      "away": "King Fisher (U/19)",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "ff6d99b1",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_c7d8e4ff_group_a",
+      "date": "2026-08-17",
+      "home": "Hoerskool Piet Potgieter (U/19)",
+      "away": "Northern Academy (U/19)",
+      "gh": 0,
+      "ga": 3
+    },
+    {
+      "id": "9659a0e9",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-08-17",
+      "home": "Hoerskool Piet Potgieter (U/15)",
+      "away": "Northern Academy (U/15)",
+      "gh": 2,
+      "ga": 3
+    },
+    {
+      "id": "07d19cb3",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-19",
+      "home": "Mamelodi Sundowns",
+      "away": "Marumo Gallants",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "531aae1c",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-08-19",
+      "home": "Hoerskool Ben Vorster (U/19)",
+      "away": "Curro Heuwelkruin (U/19)",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "514944f4",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-08-19",
+      "home": "King Fisher (U/19)",
+      "away": "Hoerskool Louis Trichardt (U/19)",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "c1844ebe",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_c7d8e4ff_group_a",
+      "date": "2026-08-19",
+      "home": "HTS Tom Naude (U/19)",
+      "away": "Hoerskool Piet Potgieter (U/19)",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "951cf855",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_c7d8e4ff_group_a",
+      "date": "2026-08-19",
+      "home": "Standford Lake College (U/19)",
+      "away": "Northern Academy (U/19)",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "43feaa59",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-08-20",
+      "home": "Veritas School (U/19)",
+      "away": "Eric Louw (U/19)",
+      "gh": 0,
+      "ga": 3
+    },
+    {
+      "id": "93729a35",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-08-19",
+      "home": "Hoerskool Ben Vorster (U/15)",
+      "away": "Curro Heuwelkruin (U/15)",
+      "gh": 5,
+      "ga": 2
+    },
+    {
+      "id": "9886b5ea",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-08-19",
+      "home": "King Fisher (U/15)",
+      "away": "Hoerskool Louis Trichardt (U/15)",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "87efb9f8",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-08-19",
+      "home": "Veritas School (U/15)",
+      "away": "Eric Louw (U/15)",
+      "gh": 0,
+      "ga": 3
+    },
+    {
+      "id": "0ec82b57",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-08-19",
+      "home": "HTS Tom Naude (U/15)",
+      "away": "Hoerskool Piet Potgieter (U/15)",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "1e4b5a9f",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-08-19",
+      "home": "Standford Lake College (U/15)",
+      "away": "Northern Academy (U/15)",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "feaa6a1d",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-21",
+      "home": "Real Native",
+      "away": "Cape Town City",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "7bf6b79e",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-21",
+      "home": "Venda",
+      "away": "Lerumo Lions",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "d73cfbfa",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-22",
+      "home": "Hope",
+      "away": "Pretoria University",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "88efda32",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-22",
+      "home": "Hungry Lions",
+      "away": "Gomora United",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "dc443e78",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-22",
+      "home": "Leicesterford City",
+      "away": "Orbit College",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "2383746f",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-22",
+      "home": "Midlands Wanderers",
+      "away": "Magesi",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "fdddd9e5",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-22",
+      "home": "North West University",
+      "away": "Upington City",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "1c2f767e",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-22",
+      "home": "The Bees",
+      "away": "Highbury",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "e6ccf89d",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-25",
+      "home": "Kruger United",
+      "away": "Durban City",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "599f7015",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-25",
+      "home": "Marumo Gallants",
+      "away": "TS Galaxy",
+      "gh": 2,
+      "ga": 3
+    },
+    {
+      "id": "c12b0789",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-25",
+      "home": "Orlando Pirates",
+      "away": "Sekhukhune United",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "8e5b299a",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-25",
+      "home": "Siwelele",
+      "away": "Chippa United",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "736616b6",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_c7d8e4ff_group_a",
+      "date": "2026-08-24",
+      "home": "Mitchell House (U/19)",
+      "away": "PEPPS College (U/19)",
+      "gh": 0,
+      "ga": 4
+    },
+    {
+      "id": "4362a2fe",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-08-24",
+      "home": "Mitchell House (U/15)",
+      "away": "PEPPS College (U/15)",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "cc536f69",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-26",
+      "home": "Golden Arrows",
+      "away": "Stellenbosch",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "a5e140ea",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-26",
+      "home": "Mamelodi Sundowns",
+      "away": "AmaZulu",
+      "gh": 5,
+      "ga": 2
+    },
+    {
+      "id": "4e7aa19e",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-26",
+      "home": "Polokwane City",
+      "away": "Milford",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "7cc35e25",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-08-26",
+      "home": "Richards Bay",
+      "away": "Kaizer Chiefs",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "b3452eab",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_c7d8e4ff_group_a",
+      "date": "2026-08-26",
+      "home": "Standford Lake College (U/19)",
+      "away": "HTS Tom Naude (U/19)",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "4edd4c49",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_c7d8e4ff_group_a",
+      "date": "2026-08-26",
+      "home": "PEPPS College (U/19)",
+      "away": "Northern Academy (U/19)",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "c74e04fb",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-08-26",
+      "home": "PEPPS College (U/15)",
+      "away": "Northern Academy (U/15)",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "b647f15c",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-08-26",
+      "home": "Standford Lake College (U/15)",
+      "away": "HTS Tom Naude (U/15)",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "d9304589",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-08-26",
+      "home": "Hoerskool Ben Vorster (U/19)",
+      "away": "Veritas School (U/19)",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "f95957c8",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-08-26",
+      "home": "Hoerskool Ben Vorster (U/15)",
+      "away": "Veritas School (U/15)",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "fe37f8e8",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-08-26",
+      "home": "Eric Louw (U/19)",
+      "away": "King Fisher (U/19)",
+      "gh": 4,
+      "ga": 1
+    },
+    {
+      "id": "0823f5e8",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-08-26",
+      "home": "Eric Louw (U/15)",
+      "away": "King Fisher (U/15)",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "74f6183a",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_792c4a83_ground_b_under_15",
+      "date": "2026-08-26",
+      "home": "Hoerskool Louis Trichardt (U/15)",
+      "away": "Curro Heuwelkruin (U/15)",
+      "gh": 0,
+      "ga": 3
+    },
+    {
+      "id": "1165f815",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-29",
+      "home": "Gomora United",
+      "away": "Venda",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "dafbddd2",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-29",
+      "home": "Lerumo Lions",
+      "away": "North West University",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "2f586e3e",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-29",
+      "home": "Magesi",
+      "away": "The Bees",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "cf142c62",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-29",
+      "home": "Pretoria University",
+      "away": "Midlands Wanderers",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "3d1a8044",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-29",
+      "home": "Upington City",
+      "away": "Real Native",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "54ce4f1c",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-29",
+      "home": "Orbit College",
+      "away": "Hungry Lions",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "efe1ce13",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-08-29",
+      "home": "Highbury",
+      "away": "Hope",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "cb788289",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-09-01",
+      "home": "Kruger United",
+      "away": "Orlando Pirates",
+      "gh": 0,
+      "ga": 4
+    },
+    {
+      "id": "51ee5f4f",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-09-01",
+      "home": "Durban City",
+      "away": "Stellenbosch",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "76f1d441",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-09-02",
+      "home": "Mamelodi Sundowns",
+      "away": "Milford",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "78a52ce3",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_8f4e3924_group_b",
+      "date": "2026-08-26",
+      "home": "Hoerskool Louis Trichardt (U/19)",
+      "away": "Curro Heuwelkruin (U/19)",
+      "gh": 0,
+      "ga": 3
+    },
+    {
+      "id": "2453ab2a",
+      "leagueId": "l_9225918d_u_15_tiyani_mabunda",
+      "streamId": "s_96af2d59_group_a_under_15",
+      "date": "2026-09-01",
+      "home": "Mitchell House (U/15)",
+      "away": "Hoerskool Piet Potgieter (U/15)",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "af990995",
+      "leagueId": "l_b570648f_u_19_tiyani_mabunda",
+      "streamId": "s_c7d8e4ff_group_a",
+      "date": "2026-09-01",
+      "home": "Mitchell House (U/19)",
+      "away": "Hoerskool Piet Potgieter (U/19)",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "24a122b7",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-09-02",
+      "home": "Cape Town City",
+      "away": "Leicesterford City",
+      "gh": 1,
+      "ga": 1
+    },
+    {
+      "id": "70f14306",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-09-05",
+      "home": "Venda",
+      "away": "Pretoria University",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "da5e24cc",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-09-05",
+      "home": "Upington City",
+      "away": "Highbury",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "fdeb0400",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-09-05",
+      "home": "North West University",
+      "away": "Hope",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "f2bf5e39",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-09-05",
+      "home": "Leicesterford City",
+      "away": "Magesi",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "11a6676d",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-09-04",
+      "home": "Real Native",
+      "away": "Midlands Wanderers",
+      "gh": 1,
+      "ga": 0
+    },
+    {
+      "id": "a4cf5b21",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-09-06",
+      "home": "Cape Town City",
+      "away": "Hungry Lions",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "566471f9",
+      "leagueId": "l_4a24d6e3_motsepe_foundation_champ",
+      "streamId": "s_081922f4_2026_2027",
+      "date": "2026-09-06",
+      "home": "The Bees",
+      "away": "Gomora United",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "c8f950c2",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-09-06",
+      "home": "Kaizer Chiefs",
+      "away": "Siwelele",
+      "gh": 3,
+      "ga": 2
+    },
+    {
+      "id": "e1cf13f7",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-09-06",
+      "home": "Golden Arrows",
+      "away": "Mamelodi Sundowns",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "a7629e94",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-09-04",
+      "home": "Richards Bay",
+      "away": "AmaZulu",
+      "gh": 1,
+      "ga": 2
+    },
+    {
+      "id": "648100d8",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-09-04",
+      "home": "Marumo Gallants",
+      "away": "Polokwane City",
+      "gh": 2,
+      "ga": 2
+    },
+    {
+      "id": "ed8378cd",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-09-05",
+      "home": "Chippa United",
+      "away": "Milford",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "e15ef221",
+      "leagueId": "l_f52e6561_betway_premiership_26_27",
+      "streamId": "s_48dc00f7_2026_2027",
+      "date": "2026-09-05",
+      "home": "Sekhukhune United",
+      "away": "TS Galaxy",
+      "gh": 0,
+      "ga": 0
+    },
+    {
+      "id": "8ee3308d",
+      "leagueId": "l_de58e88c_u_17_tiyani_mabunda",
+      "streamId": "s_0bcd8e6e_2025_2026",
+      "date": "2026-07-29",
+      "home": "PEPPS College (U/17)",
+      "away": "Hoerskool Piet Potgieter (U/17)",
+      "gh": 2,
+      "ga": 4
+    },
+    {
+      "id": "15a5a5ff",
+      "leagueId": "l_de58e88c_u_17_tiyani_mabunda",
+      "streamId": "s_0bcd8e6e_2025_2026",
+      "date": "2026-07-29",
+      "home": "Northern Academy (U/17)",
+      "away": "HTS Tom Naude (U/17)",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "8b63a62b",
+      "leagueId": "l_de58e88c_u_17_tiyani_mabunda",
+      "streamId": "s_0bcd8e6e_2025_2026",
+      "date": "2026-08-05",
+      "home": "PEPPS College (U/17)",
+      "away": "HTS Tom Naude (U/17)",
+      "gh": 0,
+      "ga": 1
+    },
+    {
+      "id": "9cb0fcb5",
+      "leagueId": "l_de58e88c_u_17_tiyani_mabunda",
+      "streamId": "s_0bcd8e6e_2025_2026",
+      "date": "2026-08-05",
+      "home": "Hoerskool Piet Potgieter (U/17)",
+      "away": "Standford Lake College (U/17)",
+      "gh": 2,
+      "ga": 0
+    },
+    {
+      "id": "fb69c7ca",
+      "leagueId": "l_de58e88c_u_17_tiyani_mabunda",
+      "streamId": "s_0bcd8e6e_2025_2026",
+      "date": "2026-08-12",
+      "home": "Standford Lake College (U/17)",
+      "away": "PEPPS College (U/17)",
+      "gh": 5,
+      "ga": 3
+    },
+    {
+      "id": "874ecc59",
+      "leagueId": "l_de58e88c_u_17_tiyani_mabunda",
+      "streamId": "s_0bcd8e6e_2025_2026",
+      "date": "2026-08-12",
+      "home": "HTS Tom Naude (U/17)",
+      "away": "Hoerskool Piet Potgieter (U/17)",
+      "gh": 2,
+      "ga": 1
+    },
+    {
+      "id": "88ba45e5",
+      "leagueId": "l_de58e88c_u_17_tiyani_mabunda",
+      "streamId": "s_0bcd8e6e_2025_2026",
+      "date": "2026-08-19",
+      "home": "Standford Lake College (U/17)",
+      "away": "Northern Academy (U/17)",
+      "gh": 3,
+      "ga": 0
+    },
+    {
+      "id": "1e4e40c1",
+      "leagueId": "l_de58e88c_u_17_tiyani_mabunda",
+      "streamId": "s_0bcd8e6e_2025_2026",
+      "date": "2026-08-26",
+      "home": "PEPPS College (U/17)",
+      "away": "Northern Academy (U/17)",
+      "gh": 1,
+      "ga": 3
+    },
+    {
+      "id": "1aed93a4",
+      "leagueId": "l_de58e88c_u_17_tiyani_mabunda",
+      "streamId": "s_0bcd8e6e_2025_2026",
+      "date": "2026-08-26",
+      "home": "Standford Lake College (U/17)",
+      "away": "HTS Tom Naude (U/17)",
+      "gh": 0,
+      "ga": 2
+    },
+    {
+      "id": "70324574",
+      "leagueId": "l_de58e88c_u_17_tiyani_mabunda",
+      "streamId": "s_0bcd8e6e_2025_2026",
+      "date": "2026-08-17",
+      "home": "Hoerskool Piet Potgieter (U/17)",
+      "away": "Northern Academy (U/17)",
+      "gh": 1,
+      "ga": 4
     }
   ],
   "users": {
@@ -5495,5 +7258,30 @@
   },
   "players": [],
   "registrations": [],
-  "match_events": []
+  "match_events": [],
+  "fixtures": [
+    {
+      "id": "bd8b393a",
+      "leagueId": "l_0b8610a7_default",
+      "streamId": "s3_stream_c1",
+      "date": "2026-06-21",
+      "time": "",
+      "home": "CNJ United",
+      "away": "Cheetahs",
+      "venue": "",
+      "notes": ""
+    },
+    {
+      "id": "2a6d0385",
+      "leagueId": "l_ff1ca40c_safa_capricorn_play_offs",
+      "streamId": "s_509ee2af_group_b",
+      "date": "2026-07-09",
+      "time": "17:30",
+      "home": "Star Sign",
+      "away": "Mandebele Happy Boys",
+      "venue": "",
+      "notes": ""
+    }
+  ],
+  "team_logos": {}
 }
